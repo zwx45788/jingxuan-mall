@@ -1,0 +1,42 @@
+package config
+
+import (
+	"fmt"
+	"os"
+
+	"github.com/goccy/go-yaml"
+)
+
+var cfg *Config
+
+type Config struct {
+	Server ServerConfig `yaml:"server"`
+	Logger LoggerConfig `yaml:"logger"`
+}
+
+type ServerConfig struct {
+	Port int `yaml:"port"`
+}
+
+type LoggerConfig struct {
+	Level     string `yaml:"level"`
+	Stdout    bool   `yaml:"stdout"`
+	Localout  bool   `yaml:"localout"`
+	Localpath string `yaml:"localpath"`
+}
+
+func Init(configPath string) error {
+	data, err := os.ReadFile(configPath)
+	if err != nil {
+		return fmt.Errorf("failed to read config file %s:%w", configPath, err)
+	}
+	err = yaml.Unmarshal(data, cfg)
+	if err != nil {
+		return fmt.Errorf("failed to unmarshal config file %s:%w", configPath, err)
+	}
+	return nil
+}
+
+func GetConfig() *Config {
+	return cfg
+}
