@@ -245,6 +245,230 @@ func (x *LoginUserResponse) GetMessage() string {
 	return ""
 }
 
+type RegisterMerchantRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Username      string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
+	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	Email         string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterMerchantRequest) Reset() {
+	*x = RegisterMerchantRequest{}
+	mi := &file_shopping_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterMerchantRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterMerchantRequest) ProtoMessage() {}
+
+func (x *RegisterMerchantRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterMerchantRequest.ProtoReflect.Descriptor instead.
+func (*RegisterMerchantRequest) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *RegisterMerchantRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *RegisterMerchantRequest) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+func (x *RegisterMerchantRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+type RegisterMerchantResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterMerchantResponse) Reset() {
+	*x = RegisterMerchantResponse{}
+	mi := &file_shopping_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterMerchantResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterMerchantResponse) ProtoMessage() {}
+
+func (x *RegisterMerchantResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterMerchantResponse.ProtoReflect.Descriptor instead.
+func (*RegisterMerchantResponse) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *RegisterMerchantResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *RegisterMerchantResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type LoginMerchantRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoginMerchantRequest) Reset() {
+	*x = LoginMerchantRequest{}
+	mi := &file_shopping_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoginMerchantRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoginMerchantRequest) ProtoMessage() {}
+
+func (x *LoginMerchantRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoginMerchantRequest.ProtoReflect.Descriptor instead.
+func (*LoginMerchantRequest) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *LoginMerchantRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *LoginMerchantRequest) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+type LoginMerchantResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Token         string                 `protobuf:"bytes,2,opt,name=token,proto3" json:"token,omitempty"`
+	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoginMerchantResponse) Reset() {
+	*x = LoginMerchantResponse{}
+	mi := &file_shopping_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoginMerchantResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoginMerchantResponse) ProtoMessage() {}
+
+func (x *LoginMerchantResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoginMerchantResponse.ProtoReflect.Descriptor instead.
+func (*LoginMerchantResponse) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *LoginMerchantResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *LoginMerchantResponse) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
+}
+
+func (x *LoginMerchantResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_shopping_proto protoreflect.FileDescriptor
 
 const file_shopping_proto_rawDesc = "" +
@@ -263,10 +487,27 @@ const file_shopping_proto_rawDesc = "" +
 	"\x11LoginUserResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x14\n" +
 	"\x05token\x18\x02 \x01(\tR\x05token\x12\x18\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage\"g\n" +
+	"\x17RegisterMerchantRequest\x12\x1a\n" +
+	"\busername\x18\x01 \x01(\tR\busername\x12\x1a\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x14\n" +
+	"\x05email\x18\x03 \x01(\tR\x05email\"N\n" +
+	"\x18RegisterMerchantResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"H\n" +
+	"\x14LoginMerchantRequest\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"a\n" +
+	"\x15LoginMerchantResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x14\n" +
+	"\x05token\x18\x02 \x01(\tR\x05token\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage2\xd2\x01\n" +
 	"\vUserservice\x12e\n" +
 	"\fRegisterUser\x12).com.example.shopping.RegisterUserRequest\x1a*.com.example.shopping.RegisterUserResponse\x12\\\n" +
-	"\tLoginUser\x12&.com.example.shopping.LoginUserRequest\x1a'.com.example.shopping.LoginUserResponseB1\n" +
+	"\tLoginUser\x12&.com.example.shopping.LoginUserRequest\x1a'.com.example.shopping.LoginUserResponse2\xee\x01\n" +
+	"\x0fMerchantservice\x12q\n" +
+	"\x10RegisterMerchant\x12-.com.example.shopping.RegisterMerchantRequest\x1a..com.example.shopping.RegisterMerchantResponse\x12h\n" +
+	"\rLoginMerchant\x12*.com.example.shopping.LoginMerchantRequest\x1a+.com.example.shopping.LoginMerchantResponseB1\n" +
 	"\x18com.example.shopping.apiZ\x15shopping/api/shoppingb\x06proto3"
 
 var (
@@ -281,20 +522,28 @@ func file_shopping_proto_rawDescGZIP() []byte {
 	return file_shopping_proto_rawDescData
 }
 
-var file_shopping_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_shopping_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_shopping_proto_goTypes = []any{
-	(*RegisterUserRequest)(nil),  // 0: com.example.shopping.RegisterUserRequest
-	(*RegisterUserResponse)(nil), // 1: com.example.shopping.RegisterUserResponse
-	(*LoginUserRequest)(nil),     // 2: com.example.shopping.LoginUserRequest
-	(*LoginUserResponse)(nil),    // 3: com.example.shopping.LoginUserResponse
+	(*RegisterUserRequest)(nil),      // 0: com.example.shopping.RegisterUserRequest
+	(*RegisterUserResponse)(nil),     // 1: com.example.shopping.RegisterUserResponse
+	(*LoginUserRequest)(nil),         // 2: com.example.shopping.LoginUserRequest
+	(*LoginUserResponse)(nil),        // 3: com.example.shopping.LoginUserResponse
+	(*RegisterMerchantRequest)(nil),  // 4: com.example.shopping.RegisterMerchantRequest
+	(*RegisterMerchantResponse)(nil), // 5: com.example.shopping.RegisterMerchantResponse
+	(*LoginMerchantRequest)(nil),     // 6: com.example.shopping.LoginMerchantRequest
+	(*LoginMerchantResponse)(nil),    // 7: com.example.shopping.LoginMerchantResponse
 }
 var file_shopping_proto_depIdxs = []int32{
 	0, // 0: com.example.shopping.Userservice.RegisterUser:input_type -> com.example.shopping.RegisterUserRequest
 	2, // 1: com.example.shopping.Userservice.LoginUser:input_type -> com.example.shopping.LoginUserRequest
-	1, // 2: com.example.shopping.Userservice.RegisterUser:output_type -> com.example.shopping.RegisterUserResponse
-	3, // 3: com.example.shopping.Userservice.LoginUser:output_type -> com.example.shopping.LoginUserResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	4, // 2: com.example.shopping.Merchantservice.RegisterMerchant:input_type -> com.example.shopping.RegisterMerchantRequest
+	6, // 3: com.example.shopping.Merchantservice.LoginMerchant:input_type -> com.example.shopping.LoginMerchantRequest
+	1, // 4: com.example.shopping.Userservice.RegisterUser:output_type -> com.example.shopping.RegisterUserResponse
+	3, // 5: com.example.shopping.Userservice.LoginUser:output_type -> com.example.shopping.LoginUserResponse
+	5, // 6: com.example.shopping.Merchantservice.RegisterMerchant:output_type -> com.example.shopping.RegisterMerchantResponse
+	7, // 7: com.example.shopping.Merchantservice.LoginMerchant:output_type -> com.example.shopping.LoginMerchantResponse
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -311,9 +560,9 @@ func file_shopping_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_shopping_proto_rawDesc), len(file_shopping_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   8,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   2,
 		},
 		GoTypes:           file_shopping_proto_goTypes,
 		DependencyIndexes: file_shopping_proto_depIdxs,

@@ -9,6 +9,11 @@ service Userservice{
     rpc LoginUser(LoginUserRequest) returns (LoginUserResponse);
 }
 
+service Merchantservice{
+    rpc RegisterMerchant(RegisterMerchantRequest) returns (RegisterMerchantResponse);
+    rpc LoginMerchant(LoginMerchantRequest) returns (LoginMerchantResponse);
+}
+
 message RegisterUserRequest{
     string username = 1;
     string password = 2;
@@ -26,6 +31,28 @@ message LoginUserRequest{
 }
 
 message LoginUserResponse{
+    bool success = 1;
+    string token = 2;
+    string message = 3;
+}
+
+message RegisterMerchantRequest{
+    string username = 1;
+    string password = 2;
+    string email = 3;
+}
+
+message RegisterMerchantResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+message LoginMerchantRequest{
+    string email = 1;
+    string password = 2;
+}
+
+message LoginMerchantResponse{
     bool success = 1;
     string token = 2;
     string message = 3;

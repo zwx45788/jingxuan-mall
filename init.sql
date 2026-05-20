@@ -23,3 +23,11 @@ CREATE TABLE IF NOT EXISTS `user_address` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='用户地址表';
 
+CREATE TABLE IF NOT EXISTS `merchant` (
+  `id` bigint NOT NULL COMMENT '商户ID' AUTO_INCREMENT, 
+  `username` varchar(255) NOT NULL COMMENT '用户名',
+  `password` varchar(255) NOT NULL COMMENT '密码',
+  `email` varchar(255) NOT NULL COMMENT '邮箱',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='商户表';
+

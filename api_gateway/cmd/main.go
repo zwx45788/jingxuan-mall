@@ -6,6 +6,7 @@ import (
 	"os/signal"
 	"shopping/internal/config"
 	"shopping/internal/logger"
+	"shopping/internal/pkg/jwt"
 	"shopping/internal/server"
 	"shopping/internal/transport/http/grpc/shoppingclient"
 	"syscall"
@@ -30,6 +31,7 @@ func main() {
 	shoppingclient.Init(ctx, cfg.ShoppingGRPC.ShoppingServiceAddr)
 	srv := server.New(cfg)
 	serverErr := make(chan error, 1)
+	jwt.Init(cfg.Jwt.Secret)
 	go func() {
 		err := srv.Start()
 		if err != nil {

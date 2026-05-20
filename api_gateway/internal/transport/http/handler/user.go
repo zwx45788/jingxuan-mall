@@ -43,3 +43,7 @@ func LoginUser(c *gin.Context) {
 
 	response.Success(c, data)
 }
+
+func GetUserInfo(c *gin.Context) {
+
+}

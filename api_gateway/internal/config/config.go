@@ -13,8 +13,12 @@ type Config struct {
 	Server       ServerConfig `yaml:"server"`
 	Logger       LoggerConfig `yaml:"logger"`
 	ShoppingGRPC GRPCConfig   `yaml:"shopping_grpc"`
+	Jwt          JwtConfig    `yaml:"jwt"`
 }
 
+type JwtConfig struct {
+	Secret string `yaml:"secret"`
+}
 type ServerConfig struct {
 	Port int `yaml:"port"`
 }
