@@ -1,7 +1,0 @@
-server:
-  port:8080
-log:
-  level:info
-  stdout:true
-  local_out:false
-  local_path:logs/gateway.log

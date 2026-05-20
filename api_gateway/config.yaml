@@ -1,0 +1,9 @@
+server:
+  port: 8080
+logger:
+  level: info
+  stdout: true
+  local_out: false
+  local_path: logs/gateway.log
+shopping_grpc:
+  shopping_service_addr: "localhost:50051"

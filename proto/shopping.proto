@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.example.shopping;
+option java_package = "com.example.shopping.api";
+option go_package = "shopping/api/shopping";
+
+service Userservice{
+    rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse);
+    rpc LoginUser(LoginUserRequest) returns (LoginUserResponse);
+}
+
+message RegisterUserRequest{
+    string username = 1;
+    string password = 2;
+    string email = 3;
+}
+
+message RegisterUserResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+message LoginUserRequest{
+    string email = 1;
+    string password = 2;
+}
+
+message LoginUserResponse{
+    bool success = 1;
+    string token = 2;
+    string message = 3;
+}

@@ -10,8 +10,9 @@ import (
 var cfg *Config
 
 type Config struct {
-	Server ServerConfig `yaml:"server"`
-	Logger LoggerConfig `yaml:"logger"`
+	Server       ServerConfig `yaml:"server"`
+	Logger       LoggerConfig `yaml:"logger"`
+	ShoppingGRPC GRPCConfig   `yaml:"shopping_grpc"`
 }
 
 type ServerConfig struct {
@@ -25,11 +26,16 @@ type LoggerConfig struct {
 	Localpath string `yaml:"localpath"`
 }
 
+type GRPCConfig struct {
+	ShoppingServiceAddr string `yaml:"shopping_service_addr"`
+}
+
 func Init(configPath string) error {
 	data, err := os.ReadFile(configPath)
 	if err != nil {
 		return fmt.Errorf("failed to read config file %s:%w", configPath, err)
 	}
+	cfg = &Config{}
 	err = yaml.Unmarshal(data, cfg)
 	if err != nil {
 		return fmt.Errorf("failed to unmarshal config file %s:%w", configPath, err)
