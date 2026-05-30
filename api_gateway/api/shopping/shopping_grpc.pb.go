@@ -19,139 +19,139 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Userservice_RegisterUser_FullMethodName = "/com.example.shopping.Userservice/RegisterUser"
-	Userservice_LoginUser_FullMethodName    = "/com.example.shopping.Userservice/LoginUser"
+	UserService_RegisterUser_FullMethodName = "/com.example.shopping.UserService/RegisterUser"
+	UserService_LoginUser_FullMethodName    = "/com.example.shopping.UserService/LoginUser"
 )
 
-// UserserviceClient is the client API for Userservice service.
+// UserServiceClient is the client API for UserService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UserserviceClient interface {
+type UserServiceClient interface {
 	RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error)
 	LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error)
 }
 
-type userserviceClient struct {
+type userServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUserserviceClient(cc grpc.ClientConnInterface) UserserviceClient {
-	return &userserviceClient{cc}
+func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
+	return &userServiceClient{cc}
 }
 
-func (c *userserviceClient) RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error) {
+func (c *userServiceClient) RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RegisterUserResponse)
-	err := c.cc.Invoke(ctx, Userservice_RegisterUser_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, UserService_RegisterUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *userserviceClient) LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error) {
+func (c *userServiceClient) LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(LoginUserResponse)
-	err := c.cc.Invoke(ctx, Userservice_LoginUser_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, UserService_LoginUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UserserviceServer is the server API for Userservice service.
-// All implementations must embed UnimplementedUserserviceServer
+// UserServiceServer is the server API for UserService service.
+// All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility.
-type UserserviceServer interface {
+type UserServiceServer interface {
 	RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error)
 	LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error)
-	mustEmbedUnimplementedUserserviceServer()
+	mustEmbedUnimplementedUserServiceServer()
 }
 
-// UnimplementedUserserviceServer must be embedded to have
+// UnimplementedUserServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedUserserviceServer struct{}
+type UnimplementedUserServiceServer struct{}
 
-func (UnimplementedUserserviceServer) RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error) {
+func (UnimplementedUserServiceServer) RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RegisterUser not implemented")
 }
-func (UnimplementedUserserviceServer) LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error) {
+func (UnimplementedUserServiceServer) LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method LoginUser not implemented")
 }
-func (UnimplementedUserserviceServer) mustEmbedUnimplementedUserserviceServer() {}
-func (UnimplementedUserserviceServer) testEmbeddedByValue()                     {}
+func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
+func (UnimplementedUserServiceServer) testEmbeddedByValue()                     {}
 
-// UnsafeUserserviceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UserserviceServer will
+// UnsafeUserServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UserServiceServer will
 // result in compilation errors.
-type UnsafeUserserviceServer interface {
-	mustEmbedUnimplementedUserserviceServer()
+type UnsafeUserServiceServer interface {
+	mustEmbedUnimplementedUserServiceServer()
 }
 
-func RegisterUserserviceServer(s grpc.ServiceRegistrar, srv UserserviceServer) {
-	// If the following call panics, it indicates UnimplementedUserserviceServer was
+func RegisterUserServiceServer(s grpc.ServiceRegistrar, srv UserServiceServer) {
+	// If the following call panics, it indicates UnimplementedUserServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&Userservice_ServiceDesc, srv)
+	s.RegisterService(&UserService_ServiceDesc, srv)
 }
 
-func _Userservice_RegisterUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserService_RegisterUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RegisterUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserserviceServer).RegisterUser(ctx, in)
+		return srv.(UserServiceServer).RegisterUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Userservice_RegisterUser_FullMethodName,
+		FullMethod: UserService_RegisterUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserserviceServer).RegisterUser(ctx, req.(*RegisterUserRequest))
+		return srv.(UserServiceServer).RegisterUser(ctx, req.(*RegisterUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Userservice_LoginUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserService_LoginUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(LoginUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserserviceServer).LoginUser(ctx, in)
+		return srv.(UserServiceServer).LoginUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Userservice_LoginUser_FullMethodName,
+		FullMethod: UserService_LoginUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserserviceServer).LoginUser(ctx, req.(*LoginUserRequest))
+		return srv.(UserServiceServer).LoginUser(ctx, req.(*LoginUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Userservice_ServiceDesc is the grpc.ServiceDesc for Userservice service.
+// UserService_ServiceDesc is the grpc.ServiceDesc for UserService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Userservice_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "com.example.shopping.Userservice",
-	HandlerType: (*UserserviceServer)(nil),
+var UserService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "com.example.shopping.UserService",
+	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "RegisterUser",
-			Handler:    _Userservice_RegisterUser_Handler,
+			Handler:    _UserService_RegisterUser_Handler,
 		},
 		{
 			MethodName: "LoginUser",
-			Handler:    _Userservice_LoginUser_Handler,
+			Handler:    _UserService_LoginUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -159,139 +159,469 @@ var Userservice_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	Merchantservice_RegisterMerchant_FullMethodName = "/com.example.shopping.Merchantservice/RegisterMerchant"
-	Merchantservice_LoginMerchant_FullMethodName    = "/com.example.shopping.Merchantservice/LoginMerchant"
+	MerchantService_RegisterMerchant_FullMethodName = "/com.example.shopping.MerchantService/RegisterMerchant"
+	MerchantService_LoginMerchant_FullMethodName    = "/com.example.shopping.MerchantService/LoginMerchant"
+	MerchantService_CreateProduct_FullMethodName    = "/com.example.shopping.MerchantService/CreateProduct"
+	MerchantService_PublishProduct_FullMethodName   = "/com.example.shopping.MerchantService/PublishProduct"
+	MerchantService_UnPublishProduct_FullMethodName = "/com.example.shopping.MerchantService/UnPublishProduct"
+	MerchantService_CreateShop_FullMethodName       = "/com.example.shopping.MerchantService/CreateShop"
 )
 
-// MerchantserviceClient is the client API for Merchantservice service.
+// MerchantServiceClient is the client API for MerchantService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MerchantserviceClient interface {
+type MerchantServiceClient interface {
 	RegisterMerchant(ctx context.Context, in *RegisterMerchantRequest, opts ...grpc.CallOption) (*RegisterMerchantResponse, error)
 	LoginMerchant(ctx context.Context, in *LoginMerchantRequest, opts ...grpc.CallOption) (*LoginMerchantResponse, error)
+	CreateProduct(ctx context.Context, in *CreateProductRequest, opts ...grpc.CallOption) (*CreateProductResponse, error)
+	PublishProduct(ctx context.Context, in *PublishProductRequest, opts ...grpc.CallOption) (*PublishProductResponse, error)
+	UnPublishProduct(ctx context.Context, in *UnPublishProductRequest, opts ...grpc.CallOption) (*UnPublishProductResponse, error)
+	CreateShop(ctx context.Context, in *CreateShopRequest, opts ...grpc.CallOption) (*CreateShopResponse, error)
 }
 
-type merchantserviceClient struct {
+type merchantServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewMerchantserviceClient(cc grpc.ClientConnInterface) MerchantserviceClient {
-	return &merchantserviceClient{cc}
+func NewMerchantServiceClient(cc grpc.ClientConnInterface) MerchantServiceClient {
+	return &merchantServiceClient{cc}
 }
 
-func (c *merchantserviceClient) RegisterMerchant(ctx context.Context, in *RegisterMerchantRequest, opts ...grpc.CallOption) (*RegisterMerchantResponse, error) {
+func (c *merchantServiceClient) RegisterMerchant(ctx context.Context, in *RegisterMerchantRequest, opts ...grpc.CallOption) (*RegisterMerchantResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RegisterMerchantResponse)
-	err := c.cc.Invoke(ctx, Merchantservice_RegisterMerchant_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MerchantService_RegisterMerchant_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *merchantserviceClient) LoginMerchant(ctx context.Context, in *LoginMerchantRequest, opts ...grpc.CallOption) (*LoginMerchantResponse, error) {
+func (c *merchantServiceClient) LoginMerchant(ctx context.Context, in *LoginMerchantRequest, opts ...grpc.CallOption) (*LoginMerchantResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(LoginMerchantResponse)
-	err := c.cc.Invoke(ctx, Merchantservice_LoginMerchant_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MerchantService_LoginMerchant_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// MerchantserviceServer is the server API for Merchantservice service.
-// All implementations must embed UnimplementedMerchantserviceServer
-// for forward compatibility.
-type MerchantserviceServer interface {
-	RegisterMerchant(context.Context, *RegisterMerchantRequest) (*RegisterMerchantResponse, error)
-	LoginMerchant(context.Context, *LoginMerchantRequest) (*LoginMerchantResponse, error)
-	mustEmbedUnimplementedMerchantserviceServer()
+func (c *merchantServiceClient) CreateProduct(ctx context.Context, in *CreateProductRequest, opts ...grpc.CallOption) (*CreateProductResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateProductResponse)
+	err := c.cc.Invoke(ctx, MerchantService_CreateProduct_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedMerchantserviceServer must be embedded to have
+func (c *merchantServiceClient) PublishProduct(ctx context.Context, in *PublishProductRequest, opts ...grpc.CallOption) (*PublishProductResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PublishProductResponse)
+	err := c.cc.Invoke(ctx, MerchantService_PublishProduct_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *merchantServiceClient) UnPublishProduct(ctx context.Context, in *UnPublishProductRequest, opts ...grpc.CallOption) (*UnPublishProductResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnPublishProductResponse)
+	err := c.cc.Invoke(ctx, MerchantService_UnPublishProduct_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *merchantServiceClient) CreateShop(ctx context.Context, in *CreateShopRequest, opts ...grpc.CallOption) (*CreateShopResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateShopResponse)
+	err := c.cc.Invoke(ctx, MerchantService_CreateShop_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MerchantServiceServer is the server API for MerchantService service.
+// All implementations must embed UnimplementedMerchantServiceServer
+// for forward compatibility.
+type MerchantServiceServer interface {
+	RegisterMerchant(context.Context, *RegisterMerchantRequest) (*RegisterMerchantResponse, error)
+	LoginMerchant(context.Context, *LoginMerchantRequest) (*LoginMerchantResponse, error)
+	CreateProduct(context.Context, *CreateProductRequest) (*CreateProductResponse, error)
+	PublishProduct(context.Context, *PublishProductRequest) (*PublishProductResponse, error)
+	UnPublishProduct(context.Context, *UnPublishProductRequest) (*UnPublishProductResponse, error)
+	CreateShop(context.Context, *CreateShopRequest) (*CreateShopResponse, error)
+	mustEmbedUnimplementedMerchantServiceServer()
+}
+
+// UnimplementedMerchantServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedMerchantserviceServer struct{}
+type UnimplementedMerchantServiceServer struct{}
 
-func (UnimplementedMerchantserviceServer) RegisterMerchant(context.Context, *RegisterMerchantRequest) (*RegisterMerchantResponse, error) {
+func (UnimplementedMerchantServiceServer) RegisterMerchant(context.Context, *RegisterMerchantRequest) (*RegisterMerchantResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RegisterMerchant not implemented")
 }
-func (UnimplementedMerchantserviceServer) LoginMerchant(context.Context, *LoginMerchantRequest) (*LoginMerchantResponse, error) {
+func (UnimplementedMerchantServiceServer) LoginMerchant(context.Context, *LoginMerchantRequest) (*LoginMerchantResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method LoginMerchant not implemented")
 }
-func (UnimplementedMerchantserviceServer) mustEmbedUnimplementedMerchantserviceServer() {}
-func (UnimplementedMerchantserviceServer) testEmbeddedByValue()                         {}
+func (UnimplementedMerchantServiceServer) CreateProduct(context.Context, *CreateProductRequest) (*CreateProductResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateProduct not implemented")
+}
+func (UnimplementedMerchantServiceServer) PublishProduct(context.Context, *PublishProductRequest) (*PublishProductResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PublishProduct not implemented")
+}
+func (UnimplementedMerchantServiceServer) UnPublishProduct(context.Context, *UnPublishProductRequest) (*UnPublishProductResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnPublishProduct not implemented")
+}
+func (UnimplementedMerchantServiceServer) CreateShop(context.Context, *CreateShopRequest) (*CreateShopResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateShop not implemented")
+}
+func (UnimplementedMerchantServiceServer) mustEmbedUnimplementedMerchantServiceServer() {}
+func (UnimplementedMerchantServiceServer) testEmbeddedByValue()                         {}
 
-// UnsafeMerchantserviceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MerchantserviceServer will
+// UnsafeMerchantServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MerchantServiceServer will
 // result in compilation errors.
-type UnsafeMerchantserviceServer interface {
-	mustEmbedUnimplementedMerchantserviceServer()
+type UnsafeMerchantServiceServer interface {
+	mustEmbedUnimplementedMerchantServiceServer()
 }
 
-func RegisterMerchantserviceServer(s grpc.ServiceRegistrar, srv MerchantserviceServer) {
-	// If the following call panics, it indicates UnimplementedMerchantserviceServer was
+func RegisterMerchantServiceServer(s grpc.ServiceRegistrar, srv MerchantServiceServer) {
+	// If the following call panics, it indicates UnimplementedMerchantServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&Merchantservice_ServiceDesc, srv)
+	s.RegisterService(&MerchantService_ServiceDesc, srv)
 }
 
-func _Merchantservice_RegisterMerchant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MerchantService_RegisterMerchant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RegisterMerchantRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MerchantserviceServer).RegisterMerchant(ctx, in)
+		return srv.(MerchantServiceServer).RegisterMerchant(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Merchantservice_RegisterMerchant_FullMethodName,
+		FullMethod: MerchantService_RegisterMerchant_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MerchantserviceServer).RegisterMerchant(ctx, req.(*RegisterMerchantRequest))
+		return srv.(MerchantServiceServer).RegisterMerchant(ctx, req.(*RegisterMerchantRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Merchantservice_LoginMerchant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MerchantService_LoginMerchant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(LoginMerchantRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MerchantserviceServer).LoginMerchant(ctx, in)
+		return srv.(MerchantServiceServer).LoginMerchant(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Merchantservice_LoginMerchant_FullMethodName,
+		FullMethod: MerchantService_LoginMerchant_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MerchantserviceServer).LoginMerchant(ctx, req.(*LoginMerchantRequest))
+		return srv.(MerchantServiceServer).LoginMerchant(ctx, req.(*LoginMerchantRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Merchantservice_ServiceDesc is the grpc.ServiceDesc for Merchantservice service.
+func _MerchantService_CreateProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateProductRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MerchantServiceServer).CreateProduct(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MerchantService_CreateProduct_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MerchantServiceServer).CreateProduct(ctx, req.(*CreateProductRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MerchantService_PublishProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PublishProductRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MerchantServiceServer).PublishProduct(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MerchantService_PublishProduct_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MerchantServiceServer).PublishProduct(ctx, req.(*PublishProductRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MerchantService_UnPublishProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnPublishProductRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MerchantServiceServer).UnPublishProduct(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MerchantService_UnPublishProduct_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MerchantServiceServer).UnPublishProduct(ctx, req.(*UnPublishProductRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MerchantService_CreateShop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateShopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MerchantServiceServer).CreateShop(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MerchantService_CreateShop_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MerchantServiceServer).CreateShop(ctx, req.(*CreateShopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MerchantService_ServiceDesc is the grpc.ServiceDesc for MerchantService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Merchantservice_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "com.example.shopping.Merchantservice",
-	HandlerType: (*MerchantserviceServer)(nil),
+var MerchantService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "com.example.shopping.MerchantService",
+	HandlerType: (*MerchantServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "RegisterMerchant",
-			Handler:    _Merchantservice_RegisterMerchant_Handler,
+			Handler:    _MerchantService_RegisterMerchant_Handler,
 		},
 		{
 			MethodName: "LoginMerchant",
-			Handler:    _Merchantservice_LoginMerchant_Handler,
+			Handler:    _MerchantService_LoginMerchant_Handler,
+		},
+		{
+			MethodName: "CreateProduct",
+			Handler:    _MerchantService_CreateProduct_Handler,
+		},
+		{
+			MethodName: "PublishProduct",
+			Handler:    _MerchantService_PublishProduct_Handler,
+		},
+		{
+			MethodName: "UnPublishProduct",
+			Handler:    _MerchantService_UnPublishProduct_Handler,
+		},
+		{
+			MethodName: "CreateShop",
+			Handler:    _MerchantService_CreateShop_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "shopping.proto",
+}
+
+const (
+	CartService_GetCartInfo_FullMethodName    = "/com.example.shopping.CartService/GetCartInfo"
+	CartService_AddToCart_FullMethodName      = "/com.example.shopping.CartService/AddToCart"
+	CartService_RemoveFromCart_FullMethodName = "/com.example.shopping.CartService/RemoveFromCart"
+)
+
+// CartServiceClient is the client API for CartService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CartServiceClient interface {
+	GetCartInfo(ctx context.Context, in *GetCartInfoRequest, opts ...grpc.CallOption) (*GetCartInfoResponse, error)
+	AddToCart(ctx context.Context, in *AddToCartRequest, opts ...grpc.CallOption) (*AddToCartResponse, error)
+	RemoveFromCart(ctx context.Context, in *RemoveFromCartRequest, opts ...grpc.CallOption) (*RemoveFromCartResponse, error)
+}
+
+type cartServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCartServiceClient(cc grpc.ClientConnInterface) CartServiceClient {
+	return &cartServiceClient{cc}
+}
+
+func (c *cartServiceClient) GetCartInfo(ctx context.Context, in *GetCartInfoRequest, opts ...grpc.CallOption) (*GetCartInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCartInfoResponse)
+	err := c.cc.Invoke(ctx, CartService_GetCartInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cartServiceClient) AddToCart(ctx context.Context, in *AddToCartRequest, opts ...grpc.CallOption) (*AddToCartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddToCartResponse)
+	err := c.cc.Invoke(ctx, CartService_AddToCart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cartServiceClient) RemoveFromCart(ctx context.Context, in *RemoveFromCartRequest, opts ...grpc.CallOption) (*RemoveFromCartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveFromCartResponse)
+	err := c.cc.Invoke(ctx, CartService_RemoveFromCart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CartServiceServer is the server API for CartService service.
+// All implementations must embed UnimplementedCartServiceServer
+// for forward compatibility.
+type CartServiceServer interface {
+	GetCartInfo(context.Context, *GetCartInfoRequest) (*GetCartInfoResponse, error)
+	AddToCart(context.Context, *AddToCartRequest) (*AddToCartResponse, error)
+	RemoveFromCart(context.Context, *RemoveFromCartRequest) (*RemoveFromCartResponse, error)
+	mustEmbedUnimplementedCartServiceServer()
+}
+
+// UnimplementedCartServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCartServiceServer struct{}
+
+func (UnimplementedCartServiceServer) GetCartInfo(context.Context, *GetCartInfoRequest) (*GetCartInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCartInfo not implemented")
+}
+func (UnimplementedCartServiceServer) AddToCart(context.Context, *AddToCartRequest) (*AddToCartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddToCart not implemented")
+}
+func (UnimplementedCartServiceServer) RemoveFromCart(context.Context, *RemoveFromCartRequest) (*RemoveFromCartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveFromCart not implemented")
+}
+func (UnimplementedCartServiceServer) mustEmbedUnimplementedCartServiceServer() {}
+func (UnimplementedCartServiceServer) testEmbeddedByValue()                     {}
+
+// UnsafeCartServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CartServiceServer will
+// result in compilation errors.
+type UnsafeCartServiceServer interface {
+	mustEmbedUnimplementedCartServiceServer()
+}
+
+func RegisterCartServiceServer(s grpc.ServiceRegistrar, srv CartServiceServer) {
+	// If the following call panics, it indicates UnimplementedCartServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CartService_ServiceDesc, srv)
+}
+
+func _CartService_GetCartInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCartInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CartServiceServer).GetCartInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CartService_GetCartInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CartServiceServer).GetCartInfo(ctx, req.(*GetCartInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CartService_AddToCart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddToCartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CartServiceServer).AddToCart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CartService_AddToCart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CartServiceServer).AddToCart(ctx, req.(*AddToCartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CartService_RemoveFromCart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveFromCartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CartServiceServer).RemoveFromCart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CartService_RemoveFromCart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CartServiceServer).RemoveFromCart(ctx, req.(*RemoveFromCartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CartService_ServiceDesc is the grpc.ServiceDesc for CartService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CartService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "com.example.shopping.CartService",
+	HandlerType: (*CartServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCartInfo",
+			Handler:    _CartService_GetCartInfo_Handler,
+		},
+		{
+			MethodName: "AddToCart",
+			Handler:    _CartService_AddToCart_Handler,
+		},
+		{
+			MethodName: "RemoveFromCart",
+			Handler:    _CartService_RemoveFromCart_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

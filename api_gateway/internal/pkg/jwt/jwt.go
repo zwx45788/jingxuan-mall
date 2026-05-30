@@ -10,12 +10,20 @@ import (
 var jwtSecret []byte
 
 func Init(secret string) {
-	jwtSecret := []byte(secret)
+	jwtSecret = []byte(secret)
 }
 
 type JWTClaims struct {
 	jwt.RegisteredClaims
+	Role Role `json:"role,omitempty"`
 }
+
+type Role string
+
+const (
+	RoleUser     Role = "user"
+	RoleMerchant Role = "merchant"
+)
 
 func ParseToken(tokenString string) (*JWTClaims, error) {
 	token, err := jwt.ParseWithClaims(tokenString, &JWTClaims{}, func(token *jwt.Token) (interface{}, error) {

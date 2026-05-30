@@ -9,7 +9,7 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-func Auth() gin.HandlerFunc {
+func Auth(AllowedRoles ...jwt.Role) gin.HandlerFunc {
 
 	return func(c *gin.Context) {
 		authHeader := c.GetHeader("Authorization")
@@ -44,9 +44,31 @@ func Auth() gin.HandlerFunc {
 			}
 			return
 		}
+		roleAllowed := false
+
+		for _, role := range AllowedRoles {
+			if role == claims.Role {
+				roleAllowed = true
+				break
+			}
+		}
+
+		if roleAllowed == false {
+			if websocket.IsWebSocketUpgrade(c.Request) {
+				c.AbortWithStatus(http.StatusForbidden)
+			} else {
+				c.JSON(http.StatusForbidden, gin.H{"error": "Invalid token"})
+			}
+			return
+		}
 
 		userid, err := claims.UserID()
 		if err != nil {
+			if websocket.IsWebSocketUpgrade(c.Request) {
+				c.AbortWithStatus(http.StatusUnauthorized)
+			} else {
+				c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
+			}
 			return
 		}
 		c.Set("user_id", userid)

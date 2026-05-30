@@ -469,6 +469,934 @@ func (x *LoginMerchantResponse) GetMessage() string {
 	return ""
 }
 
+type GetCartInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        uint64                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCartInfoRequest) Reset() {
+	*x = GetCartInfoRequest{}
+	mi := &file_shopping_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCartInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCartInfoRequest) ProtoMessage() {}
+
+func (x *GetCartInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCartInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetCartInfoRequest) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetCartInfoRequest) GetUserId() uint64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+type GetCartInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	CartItems     []*CartItem            `protobuf:"bytes,3,rep,name=cart_items,json=cartItems,proto3" json:"cart_items,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCartInfoResponse) Reset() {
+	*x = GetCartInfoResponse{}
+	mi := &file_shopping_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCartInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCartInfoResponse) ProtoMessage() {}
+
+func (x *GetCartInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCartInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetCartInfoResponse) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetCartInfoResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *GetCartInfoResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *GetCartInfoResponse) GetCartItems() []*CartItem {
+	if x != nil {
+		return x.CartItems
+	}
+	return nil
+}
+
+type CartItem struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
+	Image         string                 `protobuf:"bytes,2,opt,name=image,proto3" json:"image,omitempty"`
+	SpecJson      string                 `protobuf:"bytes,3,opt,name=spec_json,json=specJson,proto3" json:"spec_json,omitempty"`
+	Price         uint64                 `protobuf:"varint,4,opt,name=price,proto3" json:"price,omitempty"`
+	Quantity      uint64                 `protobuf:"varint,5,opt,name=quantity,proto3" json:"quantity,omitempty"`
+	Checked       uint64                 `protobuf:"varint,6,opt,name=checked,proto3" json:"checked,omitempty"`
+	ShopId        uint64                 `protobuf:"varint,7,opt,name=shop_id,json=shopId,proto3" json:"shop_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CartItem) Reset() {
+	*x = CartItem{}
+	mi := &file_shopping_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CartItem) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CartItem) ProtoMessage() {}
+
+func (x *CartItem) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CartItem.ProtoReflect.Descriptor instead.
+func (*CartItem) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *CartItem) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *CartItem) GetImage() string {
+	if x != nil {
+		return x.Image
+	}
+	return ""
+}
+
+func (x *CartItem) GetSpecJson() string {
+	if x != nil {
+		return x.SpecJson
+	}
+	return ""
+}
+
+func (x *CartItem) GetPrice() uint64 {
+	if x != nil {
+		return x.Price
+	}
+	return 0
+}
+
+func (x *CartItem) GetQuantity() uint64 {
+	if x != nil {
+		return x.Quantity
+	}
+	return 0
+}
+
+func (x *CartItem) GetChecked() uint64 {
+	if x != nil {
+		return x.Checked
+	}
+	return 0
+}
+
+func (x *CartItem) GetShopId() uint64 {
+	if x != nil {
+		return x.ShopId
+	}
+	return 0
+}
+
+type AddToCartRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        uint64                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	SkuId         uint64                 `protobuf:"varint,2,opt,name=sku_id,json=skuId,proto3" json:"sku_id,omitempty"`
+	Quantity      uint64                 `protobuf:"varint,3,opt,name=quantity,proto3" json:"quantity,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddToCartRequest) Reset() {
+	*x = AddToCartRequest{}
+	mi := &file_shopping_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddToCartRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddToCartRequest) ProtoMessage() {}
+
+func (x *AddToCartRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddToCartRequest.ProtoReflect.Descriptor instead.
+func (*AddToCartRequest) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *AddToCartRequest) GetUserId() uint64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+func (x *AddToCartRequest) GetSkuId() uint64 {
+	if x != nil {
+		return x.SkuId
+	}
+	return 0
+}
+
+func (x *AddToCartRequest) GetQuantity() uint64 {
+	if x != nil {
+		return x.Quantity
+	}
+	return 0
+}
+
+type AddToCartResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddToCartResponse) Reset() {
+	*x = AddToCartResponse{}
+	mi := &file_shopping_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddToCartResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddToCartResponse) ProtoMessage() {}
+
+func (x *AddToCartResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddToCartResponse.ProtoReflect.Descriptor instead.
+func (*AddToCartResponse) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *AddToCartResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *AddToCartResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type RemoveFromCartRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        uint64                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	CartItemId    uint64                 `protobuf:"varint,2,opt,name=cart_item_id,json=cartItemId,proto3" json:"cart_item_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveFromCartRequest) Reset() {
+	*x = RemoveFromCartRequest{}
+	mi := &file_shopping_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveFromCartRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveFromCartRequest) ProtoMessage() {}
+
+func (x *RemoveFromCartRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveFromCartRequest.ProtoReflect.Descriptor instead.
+func (*RemoveFromCartRequest) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *RemoveFromCartRequest) GetUserId() uint64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+func (x *RemoveFromCartRequest) GetCartItemId() uint64 {
+	if x != nil {
+		return x.CartItemId
+	}
+	return 0
+}
+
+type RemoveFromCartResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveFromCartResponse) Reset() {
+	*x = RemoveFromCartResponse{}
+	mi := &file_shopping_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveFromCartResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveFromCartResponse) ProtoMessage() {}
+
+func (x *RemoveFromCartResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveFromCartResponse.ProtoReflect.Descriptor instead.
+func (*RemoveFromCartResponse) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *RemoveFromCartResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *RemoveFromCartResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type CreateProductRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CategoryId    uint64                 `protobuf:"varint,1,opt,name=category_id,json=categoryId,proto3" json:"category_id,omitempty"`
+	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	MainImage     string                 `protobuf:"bytes,3,opt,name=main_image,json=mainImage,proto3" json:"main_image,omitempty"`
+	TotalStock    uint64                 `protobuf:"varint,4,opt,name=total_stock,json=totalStock,proto3" json:"total_stock,omitempty"`
+	Status        uint64                 `protobuf:"varint,5,opt,name=status,proto3" json:"status,omitempty"`
+	Skus          []*Sku                 `protobuf:"bytes,6,rep,name=skus,proto3" json:"skus,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateProductRequest) Reset() {
+	*x = CreateProductRequest{}
+	mi := &file_shopping_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateProductRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateProductRequest) ProtoMessage() {}
+
+func (x *CreateProductRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateProductRequest.ProtoReflect.Descriptor instead.
+func (*CreateProductRequest) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *CreateProductRequest) GetCategoryId() uint64 {
+	if x != nil {
+		return x.CategoryId
+	}
+	return 0
+}
+
+func (x *CreateProductRequest) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *CreateProductRequest) GetMainImage() string {
+	if x != nil {
+		return x.MainImage
+	}
+	return ""
+}
+
+func (x *CreateProductRequest) GetTotalStock() uint64 {
+	if x != nil {
+		return x.TotalStock
+	}
+	return 0
+}
+
+func (x *CreateProductRequest) GetStatus() uint64 {
+	if x != nil {
+		return x.Status
+	}
+	return 0
+}
+
+func (x *CreateProductRequest) GetSkus() []*Sku {
+	if x != nil {
+		return x.Skus
+	}
+	return nil
+}
+
+type CreateProductResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateProductResponse) Reset() {
+	*x = CreateProductResponse{}
+	mi := &file_shopping_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateProductResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateProductResponse) ProtoMessage() {}
+
+func (x *CreateProductResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateProductResponse.ProtoReflect.Descriptor instead.
+func (*CreateProductResponse) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *CreateProductResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *CreateProductResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type Sku struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SpecJson      string                 `protobuf:"bytes,1,opt,name=spec_json,json=specJson,proto3" json:"spec_json,omitempty"`
+	Price         uint64                 `protobuf:"varint,2,opt,name=price,proto3" json:"price,omitempty"`
+	Stock         uint64                 `protobuf:"varint,3,opt,name=stock,proto3" json:"stock,omitempty"`
+	Image         string                 `protobuf:"bytes,4,opt,name=image,proto3" json:"image,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Sku) Reset() {
+	*x = Sku{}
+	mi := &file_shopping_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Sku) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Sku) ProtoMessage() {}
+
+func (x *Sku) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Sku.ProtoReflect.Descriptor instead.
+func (*Sku) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *Sku) GetSpecJson() string {
+	if x != nil {
+		return x.SpecJson
+	}
+	return ""
+}
+
+func (x *Sku) GetPrice() uint64 {
+	if x != nil {
+		return x.Price
+	}
+	return 0
+}
+
+func (x *Sku) GetStock() uint64 {
+	if x != nil {
+		return x.Stock
+	}
+	return 0
+}
+
+func (x *Sku) GetImage() string {
+	if x != nil {
+		return x.Image
+	}
+	return ""
+}
+
+type PublishProductRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ProductIds    []uint64               `protobuf:"varint,1,rep,packed,name=product_ids,json=productIds,proto3" json:"product_ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PublishProductRequest) Reset() {
+	*x = PublishProductRequest{}
+	mi := &file_shopping_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PublishProductRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PublishProductRequest) ProtoMessage() {}
+
+func (x *PublishProductRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PublishProductRequest.ProtoReflect.Descriptor instead.
+func (*PublishProductRequest) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *PublishProductRequest) GetProductIds() []uint64 {
+	if x != nil {
+		return x.ProductIds
+	}
+	return nil
+}
+
+type PublishProductResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PublishProductResponse) Reset() {
+	*x = PublishProductResponse{}
+	mi := &file_shopping_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PublishProductResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PublishProductResponse) ProtoMessage() {}
+
+func (x *PublishProductResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PublishProductResponse.ProtoReflect.Descriptor instead.
+func (*PublishProductResponse) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *PublishProductResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *PublishProductResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type UnPublishProductRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ProductIds    []uint64               `protobuf:"varint,1,rep,packed,name=product_ids,json=productIds,proto3" json:"product_ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnPublishProductRequest) Reset() {
+	*x = UnPublishProductRequest{}
+	mi := &file_shopping_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnPublishProductRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnPublishProductRequest) ProtoMessage() {}
+
+func (x *UnPublishProductRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnPublishProductRequest.ProtoReflect.Descriptor instead.
+func (*UnPublishProductRequest) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *UnPublishProductRequest) GetProductIds() []uint64 {
+	if x != nil {
+		return x.ProductIds
+	}
+	return nil
+}
+
+type UnPublishProductResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnPublishProductResponse) Reset() {
+	*x = UnPublishProductResponse{}
+	mi := &file_shopping_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnPublishProductResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnPublishProductResponse) ProtoMessage() {}
+
+func (x *UnPublishProductResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnPublishProductResponse.ProtoReflect.Descriptor instead.
+func (*UnPublishProductResponse) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *UnPublishProductResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *UnPublishProductResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type CreateShopRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MerchantId    uint64                 `protobuf:"varint,1,opt,name=merchant_id,json=merchantId,proto3" json:"merchant_id,omitempty"`
+	ShopName      string                 `protobuf:"bytes,2,opt,name=shop_name,json=shopName,proto3" json:"shop_name,omitempty"`
+	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	Logo          string                 `protobuf:"bytes,4,opt,name=logo,proto3" json:"logo,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateShopRequest) Reset() {
+	*x = CreateShopRequest{}
+	mi := &file_shopping_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateShopRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateShopRequest) ProtoMessage() {}
+
+func (x *CreateShopRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateShopRequest.ProtoReflect.Descriptor instead.
+func (*CreateShopRequest) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *CreateShopRequest) GetMerchantId() uint64 {
+	if x != nil {
+		return x.MerchantId
+	}
+	return 0
+}
+
+func (x *CreateShopRequest) GetShopName() string {
+	if x != nil {
+		return x.ShopName
+	}
+	return ""
+}
+
+func (x *CreateShopRequest) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *CreateShopRequest) GetLogo() string {
+	if x != nil {
+		return x.Logo
+	}
+	return ""
+}
+
+type CreateShopResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateShopResponse) Reset() {
+	*x = CreateShopResponse{}
+	mi := &file_shopping_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateShopResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateShopResponse) ProtoMessage() {}
+
+func (x *CreateShopResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateShopResponse.ProtoReflect.Descriptor instead.
+func (*CreateShopResponse) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *CreateShopResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *CreateShopResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_shopping_proto protoreflect.FileDescriptor
 
 const file_shopping_proto_rawDesc = "" +
@@ -501,13 +1429,90 @@ const file_shopping_proto_rawDesc = "" +
 	"\x15LoginMerchantResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x14\n" +
 	"\x05token\x18\x02 \x01(\tR\x05token\x12\x18\n" +
-	"\amessage\x18\x03 \x01(\tR\amessage2\xd2\x01\n" +
-	"\vUserservice\x12e\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage\"-\n" +
+	"\x12GetCartInfoRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\x04R\x06userId\"\x88\x01\n" +
+	"\x13GetCartInfoResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\x12=\n" +
+	"\n" +
+	"cart_items\x18\x03 \x03(\v2\x1e.com.example.shopping.CartItemR\tcartItems\"\xb8\x01\n" +
+	"\bCartItem\x12\x14\n" +
+	"\x05title\x18\x01 \x01(\tR\x05title\x12\x14\n" +
+	"\x05image\x18\x02 \x01(\tR\x05image\x12\x1b\n" +
+	"\tspec_json\x18\x03 \x01(\tR\bspecJson\x12\x14\n" +
+	"\x05price\x18\x04 \x01(\x04R\x05price\x12\x1a\n" +
+	"\bquantity\x18\x05 \x01(\x04R\bquantity\x12\x18\n" +
+	"\achecked\x18\x06 \x01(\x04R\achecked\x12\x17\n" +
+	"\ashop_id\x18\a \x01(\x04R\x06shopId\"^\n" +
+	"\x10AddToCartRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\x04R\x06userId\x12\x15\n" +
+	"\x06sku_id\x18\x02 \x01(\x04R\x05skuId\x12\x1a\n" +
+	"\bquantity\x18\x03 \x01(\x04R\bquantity\"G\n" +
+	"\x11AddToCartResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"R\n" +
+	"\x15RemoveFromCartRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\x04R\x06userId\x12 \n" +
+	"\fcart_item_id\x18\x02 \x01(\x04R\n" +
+	"cartItemId\"L\n" +
+	"\x16RemoveFromCartResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\xd4\x01\n" +
+	"\x14CreateProductRequest\x12\x1f\n" +
+	"\vcategory_id\x18\x01 \x01(\x04R\n" +
+	"categoryId\x12\x14\n" +
+	"\x05title\x18\x02 \x01(\tR\x05title\x12\x1d\n" +
+	"\n" +
+	"main_image\x18\x03 \x01(\tR\tmainImage\x12\x1f\n" +
+	"\vtotal_stock\x18\x04 \x01(\x04R\n" +
+	"totalStock\x12\x16\n" +
+	"\x06status\x18\x05 \x01(\x04R\x06status\x12-\n" +
+	"\x04skus\x18\x06 \x03(\v2\x19.com.example.shopping.SkuR\x04skus\"K\n" +
+	"\x15CreateProductResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"d\n" +
+	"\x03Sku\x12\x1b\n" +
+	"\tspec_json\x18\x01 \x01(\tR\bspecJson\x12\x14\n" +
+	"\x05price\x18\x02 \x01(\x04R\x05price\x12\x14\n" +
+	"\x05stock\x18\x03 \x01(\x04R\x05stock\x12\x14\n" +
+	"\x05image\x18\x04 \x01(\tR\x05image\"8\n" +
+	"\x15PublishProductRequest\x12\x1f\n" +
+	"\vproduct_ids\x18\x01 \x03(\x04R\n" +
+	"productIds\"L\n" +
+	"\x16PublishProductResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\":\n" +
+	"\x17UnPublishProductRequest\x12\x1f\n" +
+	"\vproduct_ids\x18\x01 \x03(\x04R\n" +
+	"productIds\"N\n" +
+	"\x18UnPublishProductResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\x87\x01\n" +
+	"\x11CreateShopRequest\x12\x1f\n" +
+	"\vmerchant_id\x18\x01 \x01(\x04R\n" +
+	"merchantId\x12\x1b\n" +
+	"\tshop_name\x18\x02 \x01(\tR\bshopName\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x12\n" +
+	"\x04logo\x18\x04 \x01(\tR\x04logo\"H\n" +
+	"\x12CreateShopResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage2\xd2\x01\n" +
+	"\vUserService\x12e\n" +
 	"\fRegisterUser\x12).com.example.shopping.RegisterUserRequest\x1a*.com.example.shopping.RegisterUserResponse\x12\\\n" +
-	"\tLoginUser\x12&.com.example.shopping.LoginUserRequest\x1a'.com.example.shopping.LoginUserResponse2\xee\x01\n" +
-	"\x0fMerchantservice\x12q\n" +
+	"\tLoginUser\x12&.com.example.shopping.LoginUserRequest\x1a'.com.example.shopping.LoginUserResponse2\x99\x05\n" +
+	"\x0fMerchantService\x12q\n" +
 	"\x10RegisterMerchant\x12-.com.example.shopping.RegisterMerchantRequest\x1a..com.example.shopping.RegisterMerchantResponse\x12h\n" +
-	"\rLoginMerchant\x12*.com.example.shopping.LoginMerchantRequest\x1a+.com.example.shopping.LoginMerchantResponseB1\n" +
+	"\rLoginMerchant\x12*.com.example.shopping.LoginMerchantRequest\x1a+.com.example.shopping.LoginMerchantResponse\x12h\n" +
+	"\rCreateProduct\x12*.com.example.shopping.CreateProductRequest\x1a+.com.example.shopping.CreateProductResponse\x12k\n" +
+	"\x0ePublishProduct\x12+.com.example.shopping.PublishProductRequest\x1a,.com.example.shopping.PublishProductResponse\x12q\n" +
+	"\x10UnPublishProduct\x12-.com.example.shopping.UnPublishProductRequest\x1a..com.example.shopping.UnPublishProductResponse\x12_\n" +
+	"\n" +
+	"CreateShop\x12'.com.example.shopping.CreateShopRequest\x1a(.com.example.shopping.CreateShopResponse2\xbc\x02\n" +
+	"\vCartService\x12b\n" +
+	"\vGetCartInfo\x12(.com.example.shopping.GetCartInfoRequest\x1a).com.example.shopping.GetCartInfoResponse\x12\\\n" +
+	"\tAddToCart\x12&.com.example.shopping.AddToCartRequest\x1a'.com.example.shopping.AddToCartResponse\x12k\n" +
+	"\x0eRemoveFromCart\x12+.com.example.shopping.RemoveFromCartRequest\x1a,.com.example.shopping.RemoveFromCartResponseB1\n" +
 	"\x18com.example.shopping.apiZ\x15shopping/api/shoppingb\x06proto3"
 
 var (
@@ -522,7 +1527,7 @@ func file_shopping_proto_rawDescGZIP() []byte {
 	return file_shopping_proto_rawDescData
 }
 
-var file_shopping_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_shopping_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
 var file_shopping_proto_goTypes = []any{
 	(*RegisterUserRequest)(nil),      // 0: com.example.shopping.RegisterUserRequest
 	(*RegisterUserResponse)(nil),     // 1: com.example.shopping.RegisterUserResponse
@@ -532,21 +1537,53 @@ var file_shopping_proto_goTypes = []any{
 	(*RegisterMerchantResponse)(nil), // 5: com.example.shopping.RegisterMerchantResponse
 	(*LoginMerchantRequest)(nil),     // 6: com.example.shopping.LoginMerchantRequest
 	(*LoginMerchantResponse)(nil),    // 7: com.example.shopping.LoginMerchantResponse
+	(*GetCartInfoRequest)(nil),       // 8: com.example.shopping.GetCartInfoRequest
+	(*GetCartInfoResponse)(nil),      // 9: com.example.shopping.GetCartInfoResponse
+	(*CartItem)(nil),                 // 10: com.example.shopping.CartItem
+	(*AddToCartRequest)(nil),         // 11: com.example.shopping.AddToCartRequest
+	(*AddToCartResponse)(nil),        // 12: com.example.shopping.AddToCartResponse
+	(*RemoveFromCartRequest)(nil),    // 13: com.example.shopping.RemoveFromCartRequest
+	(*RemoveFromCartResponse)(nil),   // 14: com.example.shopping.RemoveFromCartResponse
+	(*CreateProductRequest)(nil),     // 15: com.example.shopping.CreateProductRequest
+	(*CreateProductResponse)(nil),    // 16: com.example.shopping.CreateProductResponse
+	(*Sku)(nil),                      // 17: com.example.shopping.Sku
+	(*PublishProductRequest)(nil),    // 18: com.example.shopping.PublishProductRequest
+	(*PublishProductResponse)(nil),   // 19: com.example.shopping.PublishProductResponse
+	(*UnPublishProductRequest)(nil),  // 20: com.example.shopping.UnPublishProductRequest
+	(*UnPublishProductResponse)(nil), // 21: com.example.shopping.UnPublishProductResponse
+	(*CreateShopRequest)(nil),        // 22: com.example.shopping.CreateShopRequest
+	(*CreateShopResponse)(nil),       // 23: com.example.shopping.CreateShopResponse
 }
 var file_shopping_proto_depIdxs = []int32{
-	0, // 0: com.example.shopping.Userservice.RegisterUser:input_type -> com.example.shopping.RegisterUserRequest
-	2, // 1: com.example.shopping.Userservice.LoginUser:input_type -> com.example.shopping.LoginUserRequest
-	4, // 2: com.example.shopping.Merchantservice.RegisterMerchant:input_type -> com.example.shopping.RegisterMerchantRequest
-	6, // 3: com.example.shopping.Merchantservice.LoginMerchant:input_type -> com.example.shopping.LoginMerchantRequest
-	1, // 4: com.example.shopping.Userservice.RegisterUser:output_type -> com.example.shopping.RegisterUserResponse
-	3, // 5: com.example.shopping.Userservice.LoginUser:output_type -> com.example.shopping.LoginUserResponse
-	5, // 6: com.example.shopping.Merchantservice.RegisterMerchant:output_type -> com.example.shopping.RegisterMerchantResponse
-	7, // 7: com.example.shopping.Merchantservice.LoginMerchant:output_type -> com.example.shopping.LoginMerchantResponse
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	10, // 0: com.example.shopping.GetCartInfoResponse.cart_items:type_name -> com.example.shopping.CartItem
+	17, // 1: com.example.shopping.CreateProductRequest.skus:type_name -> com.example.shopping.Sku
+	0,  // 2: com.example.shopping.UserService.RegisterUser:input_type -> com.example.shopping.RegisterUserRequest
+	2,  // 3: com.example.shopping.UserService.LoginUser:input_type -> com.example.shopping.LoginUserRequest
+	4,  // 4: com.example.shopping.MerchantService.RegisterMerchant:input_type -> com.example.shopping.RegisterMerchantRequest
+	6,  // 5: com.example.shopping.MerchantService.LoginMerchant:input_type -> com.example.shopping.LoginMerchantRequest
+	15, // 6: com.example.shopping.MerchantService.CreateProduct:input_type -> com.example.shopping.CreateProductRequest
+	18, // 7: com.example.shopping.MerchantService.PublishProduct:input_type -> com.example.shopping.PublishProductRequest
+	20, // 8: com.example.shopping.MerchantService.UnPublishProduct:input_type -> com.example.shopping.UnPublishProductRequest
+	22, // 9: com.example.shopping.MerchantService.CreateShop:input_type -> com.example.shopping.CreateShopRequest
+	8,  // 10: com.example.shopping.CartService.GetCartInfo:input_type -> com.example.shopping.GetCartInfoRequest
+	11, // 11: com.example.shopping.CartService.AddToCart:input_type -> com.example.shopping.AddToCartRequest
+	13, // 12: com.example.shopping.CartService.RemoveFromCart:input_type -> com.example.shopping.RemoveFromCartRequest
+	1,  // 13: com.example.shopping.UserService.RegisterUser:output_type -> com.example.shopping.RegisterUserResponse
+	3,  // 14: com.example.shopping.UserService.LoginUser:output_type -> com.example.shopping.LoginUserResponse
+	5,  // 15: com.example.shopping.MerchantService.RegisterMerchant:output_type -> com.example.shopping.RegisterMerchantResponse
+	7,  // 16: com.example.shopping.MerchantService.LoginMerchant:output_type -> com.example.shopping.LoginMerchantResponse
+	16, // 17: com.example.shopping.MerchantService.CreateProduct:output_type -> com.example.shopping.CreateProductResponse
+	19, // 18: com.example.shopping.MerchantService.PublishProduct:output_type -> com.example.shopping.PublishProductResponse
+	21, // 19: com.example.shopping.MerchantService.UnPublishProduct:output_type -> com.example.shopping.UnPublishProductResponse
+	23, // 20: com.example.shopping.MerchantService.CreateShop:output_type -> com.example.shopping.CreateShopResponse
+	9,  // 21: com.example.shopping.CartService.GetCartInfo:output_type -> com.example.shopping.GetCartInfoResponse
+	12, // 22: com.example.shopping.CartService.AddToCart:output_type -> com.example.shopping.AddToCartResponse
+	14, // 23: com.example.shopping.CartService.RemoveFromCart:output_type -> com.example.shopping.RemoveFromCartResponse
+	13, // [13:24] is the sub-list for method output_type
+	2,  // [2:13] is the sub-list for method input_type
+	2,  // [2:2] is the sub-list for extension type_name
+	2,  // [2:2] is the sub-list for extension extendee
+	0,  // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_shopping_proto_init() }
@@ -560,9 +1597,9 @@ func file_shopping_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_shopping_proto_rawDesc), len(file_shopping_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   24,
 			NumExtensions: 0,
-			NumServices:   2,
+			NumServices:   3,
 		},
 		GoTypes:           file_shopping_proto_goTypes,
 		DependencyIndexes: file_shopping_proto_depIdxs,

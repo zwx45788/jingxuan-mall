@@ -44,6 +44,30 @@ func LoginUser(c *gin.Context) {
 	response.Success(c, data)
 }
 
+// 获取用户信息
 func GetUserInfo(c *gin.Context) {
+
+}
+
+// 更新地址
+func UpdateAddress(c *gin.Context) {
+
+}
+
+// 删除地址
+func DeleteAddress(c *gin.Context) {
+
+}
+
+// 新增地址
+func AddAddress(c *gin.Context) {
+
+}
+
+func ListAddress(c *gin.Context) {
+
+}
+
+func UploadAvatar(c *gin.Context) {
 
 }

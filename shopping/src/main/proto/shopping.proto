@@ -4,14 +4,25 @@ package com.example.shopping;
 option java_package = "com.example.shopping.api";
 option go_package = "shopping/api/shopping";
 
-service Userservice{
+service UserService{
     rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse);
     rpc LoginUser(LoginUserRequest) returns (LoginUserResponse);
+
 }
 
-service Merchantservice{
+service MerchantService{
     rpc RegisterMerchant(RegisterMerchantRequest) returns (RegisterMerchantResponse);
     rpc LoginMerchant(LoginMerchantRequest) returns (LoginMerchantResponse);
+    rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
+    rpc PublishProduct(PublishProductRequest) returns (PublishProductResponse);
+    rpc UnPublishProduct(UnPublishProductRequest) returns (UnPublishProductResponse);
+    rpc CreateShop(CreateShopRequest) returns (CreateShopResponse);
+}
+
+service CartService{
+    rpc GetCartInfo(GetCartInfoRequest) returns (GetCartInfoResponse);
+    rpc AddToCart(AddToCartRequest) returns (AddToCartResponse);
+    rpc RemoveFromCart(RemoveFromCartRequest) returns (RemoveFromCartResponse);
 }
 
 message RegisterUserRequest{
@@ -56,4 +67,95 @@ message LoginMerchantResponse{
     bool success = 1;
     string token = 2;
     string message = 3;
+}
+
+message GetCartInfoRequest{
+    uint64 user_id = 1;
+}
+
+message GetCartInfoResponse{
+    bool success = 1;
+    string message = 2;
+    repeated CartItem cart_items = 3;
+}
+
+message CartItem{
+    string title = 1;
+    string image = 2;
+    string spec_json = 3;
+    uint64 price = 4;
+    uint64 quantity = 5;
+    uint64 checked = 6;
+    uint64 shop_id = 7;
+}
+message AddToCartRequest{
+    uint64 user_id = 1;
+    uint64 sku_id = 2;
+    uint64 quantity = 3;
+}
+
+message AddToCartResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+message RemoveFromCartRequest{
+    uint64 user_id = 1;
+    uint64 cart_item_id = 2;
+}
+
+message RemoveFromCartResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+message CreateProductRequest{
+    uint64 category_id = 1;
+    string title = 2;
+    string main_image = 3;
+    uint64 total_stock = 4;
+    uint64 status = 5;
+    repeated Sku skus = 6;
+}
+
+message CreateProductResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+message Sku{
+    string spec_json = 1;
+    uint64 price = 2;
+    uint64 stock = 3;
+    string image = 4;
+}
+
+message PublishProductRequest{
+    repeated uint64 product_ids = 1;
+}
+
+message PublishProductResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+message UnPublishProductRequest{
+    repeated uint64 product_ids = 1;
+}
+
+message UnPublishProductResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+message CreateShopRequest{
+    uint64 merchant_id = 1;
+    string shop_name = 2;
+    string description = 3;
+    string logo = 4;
+}
+
+message CreateShopResponse{
+    bool success = 1;
+    string message = 2;
 }

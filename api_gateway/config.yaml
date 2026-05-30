@@ -8,4 +8,4 @@ logger:
 shopping_grpc:
   shopping_service_addr: "localhost:50051"
 jwt:
-  secret:"my_shopping_secret"
+  secret: "my_shopping_secret"

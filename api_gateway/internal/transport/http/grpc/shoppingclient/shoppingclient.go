@@ -8,8 +8,10 @@ import (
 )
 
 var (
-	manager *grpc.ClientConnmanager
-	stub    shoppingpb.UserserviceClient
+	manager             *grpc.ClientConnmanager
+	userServiceStub     shoppingpb.UserServiceClient
+	merchantServiceStub shoppingpb.MerchantServiceClient
+	cartServiceStub     shoppingpb.CartServiceClient
 )
 
 func Init(ctx context.Context, addr string) error {
@@ -18,18 +20,34 @@ func Init(ctx context.Context, addr string) error {
 		return err
 	}
 	manager.Init(ctx)
-	stub = shoppingpb.NewUserserviceClient(manager.GetConn())
+	userServiceStub = shoppingpb.NewUserServiceClient(manager.GetConn())
+	merchantServiceStub = shoppingpb.NewMerchantServiceClient(manager.GetConn())
+	cartServiceStub = shoppingpb.NewCartServiceClient(manager.GetConn())
+
 	return nil
 }
 
-func Stub() (shoppingpb.UserserviceClient, error) {
+func GetUserServiceStub() (shoppingpb.UserServiceClient, error) {
 	if err := manager.Isready(); err != nil {
 		logger.Log.Errorf("gRPC connection is not ready: %v", err)
 		return nil, err
 	}
-	return stub, nil
+	return userServiceStub, nil
 }
-
+func GetMerchantServiceStub() (shoppingpb.MerchantServiceClient, error) {
+	if err := manager.Isready(); err != nil {
+		logger.Log.Errorf("gRPC connection is not ready: %v", err)
+		return nil, err
+	}
+	return merchantServiceStub, nil
+}
+func GetCartServiceStub() (shoppingpb.CartServiceClient, error) {
+	if err := manager.Isready(); err != nil {
+		logger.Log.Errorf("gRPC connection is not ready: %v", err)
+		return nil, err
+	}
+	return cartServiceStub, nil
+}
 func Close() {
 	if manager != nil {
 		manager.GetConn().Close()

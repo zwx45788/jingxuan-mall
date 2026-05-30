@@ -27,3 +27,10 @@ app:
     # Must match api_gateway config.local.yml jwt.secret
     secret: "dev-jwt-secret-change-me-use-at-least-32-bytes!!"
     expiration: 86400000
+
+logging:
+  level:
+    root: INFO
+
+oss:
+  bucket-name:

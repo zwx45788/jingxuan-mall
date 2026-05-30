@@ -14,6 +14,7 @@ type Config struct {
 	Logger       LoggerConfig `yaml:"logger"`
 	ShoppingGRPC GRPCConfig   `yaml:"shopping_grpc"`
 	Jwt          JwtConfig    `yaml:"jwt"`
+	Oss          OssConfig    `yaml:"oss"`
 }
 
 type JwtConfig struct {
@@ -32,6 +33,12 @@ type LoggerConfig struct {
 
 type GRPCConfig struct {
 	ShoppingServiceAddr string `yaml:"shopping_service_addr"`
+}
+
+type OssConfig struct {
+	Endpoint        string `yaml:"endpoint"`
+	AccessKeyId     string `yaml:"access_key_id"`
+	AccessKeySecret string `yaml:"access_key_secret"`
 }
 
 func Init(configPath string) error {

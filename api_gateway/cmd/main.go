@@ -7,6 +7,7 @@ import (
 	"shopping/internal/config"
 	"shopping/internal/logger"
 	"shopping/internal/pkg/jwt"
+	"shopping/internal/pkg/oss"
 	"shopping/internal/server"
 	"shopping/internal/transport/http/grpc/shoppingclient"
 	"syscall"
@@ -23,15 +24,26 @@ func init() {
 	cfg = config.GetConfig()
 	logger.Init(&cfg.Logger)
 	logger.Log.Info("配置文件从%s加载，日志系统初始化成功", configPath)
+
 }
 func main() {
 
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
-	shoppingclient.Init(ctx, cfg.ShoppingGRPC.ShoppingServiceAddr)
+	err := shoppingclient.Init(ctx, cfg.ShoppingGRPC.ShoppingServiceAddr)
+	if err != nil {
+		logger.Log.Fatalf("无法连接到gRPC服务器: %v", err)
+	}
+
 	srv := server.New(cfg)
 	serverErr := make(chan error, 1)
 	jwt.Init(cfg.Jwt.Secret)
+
+	err = oss.Init(&cfg.Oss)
+	if err != nil {
+		logger.Log.Error("oss初始化失败")
+	}
+
 	go func() {
 		err := srv.Start()
 		if err != nil {

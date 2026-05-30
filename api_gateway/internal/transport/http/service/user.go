@@ -8,7 +8,7 @@ import (
 )
 
 func RegisterUser(username, password, email string) error {
-	cli, err := shoppingclient.Stub()
+	cli, err := shoppingclient.GetUserServiceStub()
 	if err != nil {
 		return err
 	}
@@ -28,7 +28,7 @@ func RegisterUser(username, password, email string) error {
 }
 
 func LoginUser(email, password string) (string, error) {
-	cli, err := shoppingclient.Stub()
+	cli, err := shoppingclient.GetUserServiceStub()
 	if err != nil {
 		return "", err
 	}
