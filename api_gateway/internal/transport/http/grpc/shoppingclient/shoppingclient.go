@@ -12,6 +12,7 @@ var (
 	userServiceStub     shoppingpb.UserServiceClient
 	merchantServiceStub shoppingpb.MerchantServiceClient
 	cartServiceStub     shoppingpb.CartServiceClient
+	orderServiceStub    shoppingpb.OrderServiceClient
 )
 
 func Init(ctx context.Context, addr string) error {
@@ -23,6 +24,7 @@ func Init(ctx context.Context, addr string) error {
 	userServiceStub = shoppingpb.NewUserServiceClient(manager.GetConn())
 	merchantServiceStub = shoppingpb.NewMerchantServiceClient(manager.GetConn())
 	cartServiceStub = shoppingpb.NewCartServiceClient(manager.GetConn())
+	orderServiceStub = shoppingpb.NewOrderServiceClient(manager.GetConn())
 
 	return nil
 }
@@ -47,6 +49,13 @@ func GetCartServiceStub() (shoppingpb.CartServiceClient, error) {
 		return nil, err
 	}
 	return cartServiceStub, nil
+}
+func GetOrderServiceStub() (shoppingpb.OrderServiceClient, error) {
+	if err := manager.Isready(); err != nil {
+		logger.Log.Errorf("gRPC connection is not ready: %v", err)
+		return nil, err
+	}
+	return orderServiceStub, nil
 }
 func Close() {
 	if manager != nil {

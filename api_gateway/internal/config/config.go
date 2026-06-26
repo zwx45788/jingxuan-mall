@@ -15,6 +15,13 @@ type Config struct {
 	ShoppingGRPC GRPCConfig   `yaml:"shopping_grpc"`
 	Jwt          JwtConfig    `yaml:"jwt"`
 	Oss          OssConfig    `yaml:"oss"`
+	Redis        RedisConfig  `yaml:"redis"`
+}
+
+type RedisConfig struct {
+	Addr     string `yaml:"addr"`
+	Password string `yaml:"password"`
+	DB       int    `yaml:"db"`
 }
 
 type JwtConfig struct {

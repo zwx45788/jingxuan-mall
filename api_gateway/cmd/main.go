@@ -8,6 +8,7 @@ import (
 	"shopping/internal/logger"
 	"shopping/internal/pkg/jwt"
 	"shopping/internal/pkg/oss"
+	"shopping/internal/pkg/redis"
 	"shopping/internal/server"
 	"shopping/internal/transport/http/grpc/shoppingclient"
 	"syscall"
@@ -44,6 +45,10 @@ func main() {
 		logger.Log.Error("oss初始化失败")
 	}
 
+	redis.Init(cfg.Redis)
+	if err != nil {
+		logger.Log.Error("redis初始化失败")
+	}
 	go func() {
 		err := srv.Start()
 		if err != nil {

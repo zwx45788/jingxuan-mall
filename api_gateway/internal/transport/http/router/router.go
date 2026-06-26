@@ -21,6 +21,8 @@ func New() *gin.Engine {
 		userapi.GET("/cart/info", handler.GetCartInfo)
 		userapi.POST("/cart/add", handler.AddToCart)
 		userapi.POST("/cart/delete", handler.DeleteCartItem)
+		userapi.GET("/address/list", handler.ListAddresses)
+		userapi.POST("/address/update", handler.UpdateAddress)
 
 	}
 

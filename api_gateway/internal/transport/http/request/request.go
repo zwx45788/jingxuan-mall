@@ -2,6 +2,15 @@ package request
 
 import "mime/multipart"
 
+type UpdateAddressRequest struct {
+	AddressId   uint64      `json:"address_id" binding:"required"`
+	AddressInfo AddressInfo `json:"address_info" binding:"required"`
+}
+type AddressInfo struct {
+	ReceiverName string `json:"receiver_name" binding:"required"`
+	PhoneNumber  string `json:"phone_number" binding:"required"`
+	Address      string `json:"address" binding:"required"`
+}
 type RegisterUserRequest struct {
 	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required"`
@@ -58,4 +67,9 @@ type CreateShopRequest struct {
 	ShopName    string `json:"shop_name" binding:"required"`
 	Description string `json:"description" binding:"required"`
 	Logo        string `json:"logo" binding:"required"`
+}
+
+type CreateOrderRequest struct {
+	SkuId    uint64 `json:"sku_id" binding:"required"`
+	Quantity uint64 `json:"quantity" binding:"required"`
 }

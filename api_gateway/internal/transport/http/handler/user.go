@@ -47,25 +47,72 @@ func LoginUser(c *gin.Context) {
 // 获取用户信息
 func GetUserInfo(c *gin.Context) {
 
+	userid, ok := getUserID(c)
+
+	if !ok {
+		return
+	}
+
+	resp, err := service.GetUserInfo(userid)
+	if err != nil {
+		response.Error(c, err.Error())
+		return
+	}
+
+	data := gin.H{
+		"user_id":  resp.User.UserId,
+		"username": resp.User.Username,
+		"email":    resp.User.Email,
+	}
+	response.Success(c, data)
 }
 
 // 更新地址
 func UpdateAddress(c *gin.Context) {
 
+	userid, ok := getUserID(c)
+
+	if !ok {
+		return
+	}
+
+	req := &request.UpdateAddressRequest{}
+	if err := c.BindJSON(req); err != nil {
+		response.BadRequest(c, err.Error())
+		return
+	}
+
+	resp, err := service.UpdateAddress(userid, req.AddressId, req.AddressInfo)
+	if err != nil {
+		response.Error(c, err.Error())
+		return
+	}
+
+	data := gin.H{
+		"success": resp.Success,
+	}
+	response.Success(c, data)
+
 }
 
-// 删除地址
-func DeleteAddress(c *gin.Context) {
+func ListAddresses(c *gin.Context) {
 
-}
+	userid, ok := getUserID(c)
 
-// 新增地址
-func AddAddress(c *gin.Context) {
+	if !ok {
+		return
+	}
 
-}
+	resp, err := service.ListAddresses(userid)
+	if err != nil {
+		response.Error(c, err.Error())
+		return
+	}
 
-func ListAddress(c *gin.Context) {
-
+	data := gin.H{
+		"addresses": resp.Addresses,
+	}
+	response.Success(c, data)
 }
 
 func UploadAvatar(c *gin.Context) {
