@@ -46,6 +46,25 @@ func LoginMerchant(c *gin.Context) {
 // 获取商户信息
 func GetMerchantInfo(c *gin.Context) {
 
+	merchantId, ok := getUserID(c)
+
+	if !ok {
+		response.Error(c, "获取merchantId失败")
+	}
+
+	resp, err := service.GetMerchantInfo(merchantId)
+
+	if err != nil {
+		response.Error(c, "获取商户信息失败")
+	}
+
+	data := gin.H{
+		"name":  resp.Name,
+		"email": resp.Email,
+	}
+
+	response.Success(c, data)
+
 }
 
 // 获取店铺信息
@@ -56,12 +75,17 @@ func GetShopInfo(c *gin.Context) {
 // 创建店铺
 func CreateShop(c *gin.Context) {
 
+	merchantId, ok := getUserID(c)
+
+	if !ok {
+		response.Error(c, "获取商户id失败")
+	}
 	req := &request.CreateShopRequest{}
 	if err := c.ShouldBind(&req); err != nil {
 		response.Error(c, err.Error())
 		return
 	}
-	err := service.CreateShop(req.MerchantId, req.ShopName, req.Description, req.Logo)
+	err := service.CreateShop(merchantId, req.ShopName, req.Description, req.Logo)
 	if err != nil {
 		response.Error(c, err.Error())
 		return

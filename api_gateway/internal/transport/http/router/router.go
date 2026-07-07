@@ -29,9 +29,9 @@ func New() *gin.Engine {
 	merchantapi := r.Group("/api/merchant", middleware.Auth((jwt.RoleMerchant)))
 	{
 		merchantapi.GET("/info", handler.GetMerchantInfo)
-		merchantapi.POST("/create/shop", handler.CreateShop)
-		merchantapi.POST("/create/product", handler.CreateProduct)
-		merchantapi.POST("/publish/product", handler.PublishProduct)
+		merchantapi.POST("/shop/create", handler.CreateShop)
+		merchantapi.POST("/product/create", handler.CreateProduct)
+		merchantapi.POST("/product/publish", handler.PublishProduct)
 
 	}
 	return r

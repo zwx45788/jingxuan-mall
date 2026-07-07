@@ -2069,6 +2069,118 @@ func (x *CreateOrderResponse) GetMessage() string {
 	return ""
 }
 
+type GetMerchantInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MerchantId    uint64                 `protobuf:"varint,1,opt,name=merchant_id,json=merchantId,proto3" json:"merchant_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMerchantInfoRequest) Reset() {
+	*x = GetMerchantInfoRequest{}
+	mi := &file_shopping_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMerchantInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMerchantInfoRequest) ProtoMessage() {}
+
+func (x *GetMerchantInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMerchantInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetMerchantInfoRequest) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *GetMerchantInfoRequest) GetMerchantId() uint64 {
+	if x != nil {
+		return x.MerchantId
+	}
+	return 0
+}
+
+type GetMerchantInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	Email         string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMerchantInfoResponse) Reset() {
+	*x = GetMerchantInfoResponse{}
+	mi := &file_shopping_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMerchantInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMerchantInfoResponse) ProtoMessage() {}
+
+func (x *GetMerchantInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_shopping_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMerchantInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetMerchantInfoResponse) Descriptor() ([]byte, []int) {
+	return file_shopping_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetMerchantInfoResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *GetMerchantInfoResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *GetMerchantInfoResponse) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *GetMerchantInfoResponse) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
 var File_shopping_proto protoreflect.FileDescriptor
 
 const file_shopping_proto_rawDesc = "" +
@@ -2213,14 +2325,22 @@ const file_shopping_proto_rawDesc = "" +
 	"\bquantity\x18\x03 \x01(\x04R\bquantity\"I\n" +
 	"\x13CreateOrderResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage2\xf7\x04\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"9\n" +
+	"\x16GetMerchantInfoRequest\x12\x1f\n" +
+	"\vmerchant_id\x18\x01 \x01(\x04R\n" +
+	"merchantId\"w\n" +
+	"\x17GetMerchantInfoResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\x12\x12\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x12\x14\n" +
+	"\x05email\x18\x04 \x01(\tR\x05email2\xf7\x04\n" +
 	"\vUserService\x12e\n" +
 	"\fRegisterUser\x12).com.example.shopping.RegisterUserRequest\x1a*.com.example.shopping.RegisterUserResponse\x12\\\n" +
 	"\tLoginUser\x12&.com.example.shopping.LoginUserRequest\x1a'.com.example.shopping.LoginUserResponse\x12b\n" +
 	"\vGetUserInfo\x12(.com.example.shopping.GetUserInfoRequest\x1a).com.example.shopping.GetUserInfoResponse\x12h\n" +
 	"\rListAddresses\x12*.com.example.shopping.ListAddressesRequest\x1a+.com.example.shopping.ListAddressesResponse\x12h\n" +
 	"\rUpdateAddress\x12*.com.example.shopping.UpdateAddressRequest\x1a+.com.example.shopping.UpdateAddressResponse\x12k\n" +
-	"\x0eUpdateUserInfo\x12+.com.example.shopping.UpdateUserInfoRequest\x1a,.com.example.shopping.UpdateUserInfoResponse2\x99\x05\n" +
+	"\x0eUpdateUserInfo\x12+.com.example.shopping.UpdateUserInfoRequest\x1a,.com.example.shopping.UpdateUserInfoResponse2\x89\x06\n" +
 	"\x0fMerchantService\x12q\n" +
 	"\x10RegisterMerchant\x12-.com.example.shopping.RegisterMerchantRequest\x1a..com.example.shopping.RegisterMerchantResponse\x12h\n" +
 	"\rLoginMerchant\x12*.com.example.shopping.LoginMerchantRequest\x1a+.com.example.shopping.LoginMerchantResponse\x12h\n" +
@@ -2228,7 +2348,8 @@ const file_shopping_proto_rawDesc = "" +
 	"\x0ePublishProduct\x12+.com.example.shopping.PublishProductRequest\x1a,.com.example.shopping.PublishProductResponse\x12q\n" +
 	"\x10UnPublishProduct\x12-.com.example.shopping.UnPublishProductRequest\x1a..com.example.shopping.UnPublishProductResponse\x12_\n" +
 	"\n" +
-	"CreateShop\x12'.com.example.shopping.CreateShopRequest\x1a(.com.example.shopping.CreateShopResponse2\xbc\x02\n" +
+	"CreateShop\x12'.com.example.shopping.CreateShopRequest\x1a(.com.example.shopping.CreateShopResponse\x12n\n" +
+	"\x0fGetMerchantInfo\x12,.com.example.shopping.GetMerchantInfoRequest\x1a-.com.example.shopping.GetMerchantInfoResponse2\xbc\x02\n" +
 	"\vCartService\x12b\n" +
 	"\vGetCartInfo\x12(.com.example.shopping.GetCartInfoRequest\x1a).com.example.shopping.GetCartInfoResponse\x12\\\n" +
 	"\tAddToCart\x12&.com.example.shopping.AddToCartRequest\x1a'.com.example.shopping.AddToCartResponse\x12k\n" +
@@ -2249,7 +2370,7 @@ func file_shopping_proto_rawDescGZIP() []byte {
 	return file_shopping_proto_rawDescData
 }
 
-var file_shopping_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
+var file_shopping_proto_msgTypes = make([]protoimpl.MessageInfo, 38)
 var file_shopping_proto_goTypes = []any{
 	(*AddressInfo)(nil),              // 0: com.example.shopping.AddressInfo
 	(*ListAddressesRequest)(nil),     // 1: com.example.shopping.ListAddressesRequest
@@ -2287,6 +2408,8 @@ var file_shopping_proto_goTypes = []any{
 	(*CreateShopResponse)(nil),       // 33: com.example.shopping.CreateShopResponse
 	(*CreateOrderRequest)(nil),       // 34: com.example.shopping.CreateOrderRequest
 	(*CreateOrderResponse)(nil),      // 35: com.example.shopping.CreateOrderResponse
+	(*GetMerchantInfoRequest)(nil),   // 36: com.example.shopping.GetMerchantInfoRequest
+	(*GetMerchantInfoResponse)(nil),  // 37: com.example.shopping.GetMerchantInfoResponse
 }
 var file_shopping_proto_depIdxs = []int32{
 	0,  // 0: com.example.shopping.ListAddressesResponse.addresses:type_name -> com.example.shopping.AddressInfo
@@ -2306,28 +2429,30 @@ var file_shopping_proto_depIdxs = []int32{
 	28, // 14: com.example.shopping.MerchantService.PublishProduct:input_type -> com.example.shopping.PublishProductRequest
 	30, // 15: com.example.shopping.MerchantService.UnPublishProduct:input_type -> com.example.shopping.UnPublishProductRequest
 	32, // 16: com.example.shopping.MerchantService.CreateShop:input_type -> com.example.shopping.CreateShopRequest
-	14, // 17: com.example.shopping.CartService.GetCartInfo:input_type -> com.example.shopping.GetCartInfoRequest
-	17, // 18: com.example.shopping.CartService.AddToCart:input_type -> com.example.shopping.AddToCartRequest
-	19, // 19: com.example.shopping.CartService.RemoveFromCart:input_type -> com.example.shopping.RemoveFromCartRequest
-	34, // 20: com.example.shopping.OrderService.CreateOrder:input_type -> com.example.shopping.CreateOrderRequest
-	11, // 21: com.example.shopping.UserService.RegisterUser:output_type -> com.example.shopping.RegisterUserResponse
-	13, // 22: com.example.shopping.UserService.LoginUser:output_type -> com.example.shopping.LoginUserResponse
-	6,  // 23: com.example.shopping.UserService.GetUserInfo:output_type -> com.example.shopping.GetUserInfoResponse
-	2,  // 24: com.example.shopping.UserService.ListAddresses:output_type -> com.example.shopping.ListAddressesResponse
-	4,  // 25: com.example.shopping.UserService.UpdateAddress:output_type -> com.example.shopping.UpdateAddressResponse
-	8,  // 26: com.example.shopping.UserService.UpdateUserInfo:output_type -> com.example.shopping.UpdateUserInfoResponse
-	22, // 27: com.example.shopping.MerchantService.RegisterMerchant:output_type -> com.example.shopping.RegisterMerchantResponse
-	24, // 28: com.example.shopping.MerchantService.LoginMerchant:output_type -> com.example.shopping.LoginMerchantResponse
-	26, // 29: com.example.shopping.MerchantService.CreateProduct:output_type -> com.example.shopping.CreateProductResponse
-	29, // 30: com.example.shopping.MerchantService.PublishProduct:output_type -> com.example.shopping.PublishProductResponse
-	31, // 31: com.example.shopping.MerchantService.UnPublishProduct:output_type -> com.example.shopping.UnPublishProductResponse
-	33, // 32: com.example.shopping.MerchantService.CreateShop:output_type -> com.example.shopping.CreateShopResponse
-	15, // 33: com.example.shopping.CartService.GetCartInfo:output_type -> com.example.shopping.GetCartInfoResponse
-	18, // 34: com.example.shopping.CartService.AddToCart:output_type -> com.example.shopping.AddToCartResponse
-	20, // 35: com.example.shopping.CartService.RemoveFromCart:output_type -> com.example.shopping.RemoveFromCartResponse
-	35, // 36: com.example.shopping.OrderService.CreateOrder:output_type -> com.example.shopping.CreateOrderResponse
-	21, // [21:37] is the sub-list for method output_type
-	5,  // [5:21] is the sub-list for method input_type
+	36, // 17: com.example.shopping.MerchantService.GetMerchantInfo:input_type -> com.example.shopping.GetMerchantInfoRequest
+	14, // 18: com.example.shopping.CartService.GetCartInfo:input_type -> com.example.shopping.GetCartInfoRequest
+	17, // 19: com.example.shopping.CartService.AddToCart:input_type -> com.example.shopping.AddToCartRequest
+	19, // 20: com.example.shopping.CartService.RemoveFromCart:input_type -> com.example.shopping.RemoveFromCartRequest
+	34, // 21: com.example.shopping.OrderService.CreateOrder:input_type -> com.example.shopping.CreateOrderRequest
+	11, // 22: com.example.shopping.UserService.RegisterUser:output_type -> com.example.shopping.RegisterUserResponse
+	13, // 23: com.example.shopping.UserService.LoginUser:output_type -> com.example.shopping.LoginUserResponse
+	6,  // 24: com.example.shopping.UserService.GetUserInfo:output_type -> com.example.shopping.GetUserInfoResponse
+	2,  // 25: com.example.shopping.UserService.ListAddresses:output_type -> com.example.shopping.ListAddressesResponse
+	4,  // 26: com.example.shopping.UserService.UpdateAddress:output_type -> com.example.shopping.UpdateAddressResponse
+	8,  // 27: com.example.shopping.UserService.UpdateUserInfo:output_type -> com.example.shopping.UpdateUserInfoResponse
+	22, // 28: com.example.shopping.MerchantService.RegisterMerchant:output_type -> com.example.shopping.RegisterMerchantResponse
+	24, // 29: com.example.shopping.MerchantService.LoginMerchant:output_type -> com.example.shopping.LoginMerchantResponse
+	26, // 30: com.example.shopping.MerchantService.CreateProduct:output_type -> com.example.shopping.CreateProductResponse
+	29, // 31: com.example.shopping.MerchantService.PublishProduct:output_type -> com.example.shopping.PublishProductResponse
+	31, // 32: com.example.shopping.MerchantService.UnPublishProduct:output_type -> com.example.shopping.UnPublishProductResponse
+	33, // 33: com.example.shopping.MerchantService.CreateShop:output_type -> com.example.shopping.CreateShopResponse
+	37, // 34: com.example.shopping.MerchantService.GetMerchantInfo:output_type -> com.example.shopping.GetMerchantInfoResponse
+	15, // 35: com.example.shopping.CartService.GetCartInfo:output_type -> com.example.shopping.GetCartInfoResponse
+	18, // 36: com.example.shopping.CartService.AddToCart:output_type -> com.example.shopping.AddToCartResponse
+	20, // 37: com.example.shopping.CartService.RemoveFromCart:output_type -> com.example.shopping.RemoveFromCartResponse
+	35, // 38: com.example.shopping.OrderService.CreateOrder:output_type -> com.example.shopping.CreateOrderResponse
+	22, // [22:39] is the sub-list for method output_type
+	5,  // [5:22] is the sub-list for method input_type
 	5,  // [5:5] is the sub-list for extension type_name
 	5,  // [5:5] is the sub-list for extension extendee
 	0,  // [0:5] is the sub-list for field type_name
@@ -2344,7 +2469,7 @@ func file_shopping_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_shopping_proto_rawDesc), len(file_shopping_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   36,
+			NumMessages:   38,
 			NumExtensions: 0,
 			NumServices:   4,
 		},

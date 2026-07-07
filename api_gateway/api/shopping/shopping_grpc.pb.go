@@ -317,6 +317,7 @@ const (
 	MerchantService_PublishProduct_FullMethodName   = "/com.example.shopping.MerchantService/PublishProduct"
 	MerchantService_UnPublishProduct_FullMethodName = "/com.example.shopping.MerchantService/UnPublishProduct"
 	MerchantService_CreateShop_FullMethodName       = "/com.example.shopping.MerchantService/CreateShop"
+	MerchantService_GetMerchantInfo_FullMethodName  = "/com.example.shopping.MerchantService/GetMerchantInfo"
 )
 
 // MerchantServiceClient is the client API for MerchantService service.
@@ -329,6 +330,7 @@ type MerchantServiceClient interface {
 	PublishProduct(ctx context.Context, in *PublishProductRequest, opts ...grpc.CallOption) (*PublishProductResponse, error)
 	UnPublishProduct(ctx context.Context, in *UnPublishProductRequest, opts ...grpc.CallOption) (*UnPublishProductResponse, error)
 	CreateShop(ctx context.Context, in *CreateShopRequest, opts ...grpc.CallOption) (*CreateShopResponse, error)
+	GetMerchantInfo(ctx context.Context, in *GetMerchantInfoRequest, opts ...grpc.CallOption) (*GetMerchantInfoResponse, error)
 }
 
 type merchantServiceClient struct {
@@ -399,6 +401,16 @@ func (c *merchantServiceClient) CreateShop(ctx context.Context, in *CreateShopRe
 	return out, nil
 }
 
+func (c *merchantServiceClient) GetMerchantInfo(ctx context.Context, in *GetMerchantInfoRequest, opts ...grpc.CallOption) (*GetMerchantInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMerchantInfoResponse)
+	err := c.cc.Invoke(ctx, MerchantService_GetMerchantInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MerchantServiceServer is the server API for MerchantService service.
 // All implementations must embed UnimplementedMerchantServiceServer
 // for forward compatibility.
@@ -409,6 +421,7 @@ type MerchantServiceServer interface {
 	PublishProduct(context.Context, *PublishProductRequest) (*PublishProductResponse, error)
 	UnPublishProduct(context.Context, *UnPublishProductRequest) (*UnPublishProductResponse, error)
 	CreateShop(context.Context, *CreateShopRequest) (*CreateShopResponse, error)
+	GetMerchantInfo(context.Context, *GetMerchantInfoRequest) (*GetMerchantInfoResponse, error)
 	mustEmbedUnimplementedMerchantServiceServer()
 }
 
@@ -436,6 +449,9 @@ func (UnimplementedMerchantServiceServer) UnPublishProduct(context.Context, *UnP
 }
 func (UnimplementedMerchantServiceServer) CreateShop(context.Context, *CreateShopRequest) (*CreateShopResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateShop not implemented")
+}
+func (UnimplementedMerchantServiceServer) GetMerchantInfo(context.Context, *GetMerchantInfoRequest) (*GetMerchantInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMerchantInfo not implemented")
 }
 func (UnimplementedMerchantServiceServer) mustEmbedUnimplementedMerchantServiceServer() {}
 func (UnimplementedMerchantServiceServer) testEmbeddedByValue()                         {}
@@ -566,6 +582,24 @@ func _MerchantService_CreateShop_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _MerchantService_GetMerchantInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMerchantInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MerchantServiceServer).GetMerchantInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MerchantService_GetMerchantInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MerchantServiceServer).GetMerchantInfo(ctx, req.(*GetMerchantInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // MerchantService_ServiceDesc is the grpc.ServiceDesc for MerchantService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -596,6 +630,10 @@ var MerchantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateShop",
 			Handler:    _MerchantService_CreateShop_Handler,
+		},
+		{
+			MethodName: "GetMerchantInfo",
+			Handler:    _MerchantService_GetMerchantInfo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

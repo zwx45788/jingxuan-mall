@@ -172,3 +172,25 @@ func CreateShop(merchantId uint64, shopName, description, logo string) error {
 	}
 	return nil
 }
+
+func GetMerchantInfo(merchantId uint64) (*shopping.GetMerchantInfoResponse, error) {
+	cli, err := shoppingclient.GetMerchantServiceStub()
+
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := cli.GetMerchantInfo(context.Background(), &shopping.GetMerchantInfoRequest{
+		MerchantId: merchantId,
+	})
+
+	if err != nil {
+		return nil, err
+	}
+
+	if !resp.Success {
+		return nil, errors.New(resp.Message)
+	}
+
+	return resp, nil
+}

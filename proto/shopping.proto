@@ -20,6 +20,7 @@ service MerchantService{
     rpc PublishProduct(PublishProductRequest) returns (PublishProductResponse);
     rpc UnPublishProduct(UnPublishProductRequest) returns (UnPublishProductResponse);
     rpc CreateShop(CreateShopRequest) returns (CreateShopResponse);
+    rpc GetMerchantInfo(GetMerchantInfoRequest) returns (GetMerchantInfoResponse);
 }
 
 service CartService{
@@ -236,4 +237,15 @@ message CreateOrderRequest{
 message CreateOrderResponse{
     bool success = 1;
     string message = 2;
+}
+
+message GetMerchantInfoRequest{
+    uint64 merchant_id = 1;
+}
+
+message GetMerchantInfoResponse{
+    bool success = 1;
+    string message = 2;
+    string name = 3;
+    string email = 4;
 }
