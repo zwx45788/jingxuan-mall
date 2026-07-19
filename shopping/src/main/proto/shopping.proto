@@ -7,7 +7,10 @@ option go_package = "shopping/api/shopping";
 service UserService{
     rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse);
     rpc LoginUser(LoginUserRequest) returns (LoginUserResponse);
-
+    rpc GetUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
+    rpc ListAddresses(ListAddressesRequest) returns (ListAddressesResponse);
+    rpc UpdateAddress(UpdateAddressRequest) returns (UpdateAddressResponse);
+    rpc UpdateUserInfo(UpdateUserInfoRequest) returns (UpdateUserInfoResponse);
 }
 
 service MerchantService{
@@ -17,6 +20,7 @@ service MerchantService{
     rpc PublishProduct(PublishProductRequest) returns (PublishProductResponse);
     rpc UnPublishProduct(UnPublishProductRequest) returns (UnPublishProductResponse);
     rpc CreateShop(CreateShopRequest) returns (CreateShopResponse);
+    rpc GetMerchantInfo(GetMerchantInfoRequest) returns (GetMerchantInfoResponse);
 }
 
 service CartService{
@@ -24,7 +28,69 @@ service CartService{
     rpc AddToCart(AddToCartRequest) returns (AddToCartResponse);
     rpc RemoveFromCart(RemoveFromCartRequest) returns (RemoveFromCartResponse);
 }
+//order service
+service OrderService{
+    rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse);
+}
 
+//user service
+
+message AddressInfo{
+    uint64 address_id = 1;
+    string receiver_name = 2;
+    string phone_number = 3;
+    string address = 4;
+}
+
+message ListAddressesRequest{
+    uint64 user_id = 1;
+}
+
+message ListAddressesResponse{
+    bool success = 1;
+    string message = 2;
+    repeated AddressInfo addresses = 3;
+}
+
+
+
+message UpdateAddressRequest{
+    uint64 user_id = 1;
+    uint64 address_id = 2;
+    AddressInfo address_info = 3;
+}
+
+message UpdateAddressResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+message GetUserInfoRequest{
+    uint64 user_id = 1;
+}
+
+message GetUserInfoResponse{
+    bool success = 1;
+    string message = 2;
+    User user = 3;
+}
+
+message UpdateUserInfoRequest{
+    uint64 user_id = 1;
+    string username = 2;
+    string email = 3;
+}
+
+message UpdateUserInfoResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+message User{
+    uint64 user_id = 1;
+    string username = 2;
+    string email = 3;
+}
 message RegisterUserRequest{
     string username = 1;
     string password = 2;
@@ -46,29 +112,6 @@ message LoginUserResponse{
     string token = 2;
     string message = 3;
 }
-
-message RegisterMerchantRequest{
-    string username = 1;
-    string password = 2;
-    string email = 3;
-}
-
-message RegisterMerchantResponse{
-    bool success = 1;
-    string message = 2;
-}
-
-message LoginMerchantRequest{
-    string email = 1;
-    string password = 2;
-}
-
-message LoginMerchantResponse{
-    bool success = 1;
-    string token = 2;
-    string message = 3;
-}
-
 message GetCartInfoRequest{
     uint64 user_id = 1;
 }
@@ -108,6 +151,31 @@ message RemoveFromCartResponse{
     bool success = 1;
     string message = 2;
 }
+
+//merchant service
+
+message RegisterMerchantRequest{
+    string username = 1;
+    string password = 2;
+    string email = 3;
+}
+
+message RegisterMerchantResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+message LoginMerchantRequest{
+    string email = 1;
+    string password = 2;
+}
+
+message LoginMerchantResponse{
+    bool success = 1;
+    string token = 2;
+    string message = 3;
+}
+
 
 message CreateProductRequest{
     uint64 category_id = 1;
@@ -158,4 +226,26 @@ message CreateShopRequest{
 message CreateShopResponse{
     bool success = 1;
     string message = 2;
+}
+
+message CreateOrderRequest{
+    uint64 user_id = 1;
+    uint64 sku_id = 2;
+    uint64 quantity = 3;
+}
+
+message CreateOrderResponse{
+    bool success = 1;
+    string message = 2;
+}
+
+message GetMerchantInfoRequest{
+    uint64 merchant_id = 1;
+}
+
+message GetMerchantInfoResponse{
+    bool success = 1;
+    string message = 2;
+    string name = 3;
+    string email = 4;
 }

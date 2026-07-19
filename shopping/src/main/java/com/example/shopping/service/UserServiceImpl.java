@@ -1,6 +1,7 @@
 package com.example.shopping.service;
 
 import com.example.shopping.config.JwtConfig;
+import com.example.shopping.model.Shop;
 import com.example.shopping.model.User;
 import com.example.shopping.api.*;
 import com.example.shopping.pkg.oss.OssService;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import io.grpc.stub.StreamObserver;
 import io.grpc.Status;
+
+import java.util.Optional;
 
 @Slf4j
 @GrpcService
@@ -101,7 +104,42 @@ public class UserServiceImpl extends UserServiceGrpc.UserServiceImplBase {
             responseStreamObserver.onError(Status.INTERNAL.withDescription(e.getMessage()).asException());
         }
     }
-    
+
+    public void getUserInfo(Shopping.GetUserInfoRequest request, StreamObserver<Shopping.GetUserInfoResponse> responseStreamObserver) {
+        try{
+             userRepository.findById(request.getUserId()).ifPresentOrElse(
+                     user -> {
+                         Shopping.User newUser = Shopping.User.newBuilder()
+                                 .setUserId(user.getId())
+                                 .setUsername(user.getUsername())
+                                 .setEmail(user.getEmail())
+                                 .build();
+                         responseStreamObserver.onNext(
+                                 Shopping.GetUserInfoResponse.newBuilder()
+                                         .setSuccess(true)
+                                         .setMessage("查找用户信息成功")
+                                         .setUser(newUser)
+                                         .build()
+                         );
+
+                     },
+                     ()->{
+                        responseStreamObserver.onNext(
+                                Shopping.GetUserInfoResponse.newBuilder()
+                                        .setSuccess(false)
+                                        .setMessage("用户不存在")
+                                        .build()
+                        );
+                     }
+             );
+        }
+        catch(Exception e){
+
+            log.error("获取用户信息失败: {}", e.getMessage());
+            responseStreamObserver.onError(Status.INTERNAL.withDescription(e.getMessage()).asException());
+
+        }
+    }
     
    
 }
