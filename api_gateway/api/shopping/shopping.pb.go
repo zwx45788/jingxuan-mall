@@ -26,7 +26,10 @@ type AddressInfo struct {
 	AddressId     uint64                 `protobuf:"varint,1,opt,name=address_id,json=addressId,proto3" json:"address_id,omitempty"`
 	ReceiverName  string                 `protobuf:"bytes,2,opt,name=receiver_name,json=receiverName,proto3" json:"receiver_name,omitempty"`
 	PhoneNumber   string                 `protobuf:"bytes,3,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
-	Address       string                 `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
+	Province      string                 `protobuf:"bytes,4,opt,name=province,proto3" json:"province,omitempty"`
+	City          string                 `protobuf:"bytes,5,opt,name=city,proto3" json:"city,omitempty"`
+	District      string                 `protobuf:"bytes,6,opt,name=district,proto3" json:"district,omitempty"`
+	Detail        string                 `protobuf:"bytes,7,opt,name=detail,proto3" json:"detail,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -82,9 +85,30 @@ func (x *AddressInfo) GetPhoneNumber() string {
 	return ""
 }
 
-func (x *AddressInfo) GetAddress() string {
+func (x *AddressInfo) GetProvince() string {
 	if x != nil {
-		return x.Address
+		return x.Province
+	}
+	return ""
+}
+
+func (x *AddressInfo) GetCity() string {
+	if x != nil {
+		return x.City
+	}
+	return ""
+}
+
+func (x *AddressInfo) GetDistrict() string {
+	if x != nil {
+		return x.District
+	}
+	return ""
+}
+
+func (x *AddressInfo) GetDetail() string {
+	if x != nil {
+		return x.Detail
 	}
 	return ""
 }
@@ -2185,13 +2209,16 @@ var File_shopping_proto protoreflect.FileDescriptor
 
 const file_shopping_proto_rawDesc = "" +
 	"\n" +
-	"\x0eshopping.proto\x12\x14com.example.shopping\"\x8e\x01\n" +
+	"\x0eshopping.proto\x12\x14com.example.shopping\"\xd8\x01\n" +
 	"\vAddressInfo\x12\x1d\n" +
 	"\n" +
 	"address_id\x18\x01 \x01(\x04R\taddressId\x12#\n" +
 	"\rreceiver_name\x18\x02 \x01(\tR\freceiverName\x12!\n" +
-	"\fphone_number\x18\x03 \x01(\tR\vphoneNumber\x12\x18\n" +
-	"\aaddress\x18\x04 \x01(\tR\aaddress\"/\n" +
+	"\fphone_number\x18\x03 \x01(\tR\vphoneNumber\x12\x1a\n" +
+	"\bprovince\x18\x04 \x01(\tR\bprovince\x12\x12\n" +
+	"\x04city\x18\x05 \x01(\tR\x04city\x12\x1a\n" +
+	"\bdistrict\x18\x06 \x01(\tR\bdistrict\x12\x16\n" +
+	"\x06detail\x18\a \x01(\tR\x06detail\"/\n" +
 	"\x14ListAddressesRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x04R\x06userId\"\x8c\x01\n" +
 	"\x15ListAddressesResponse\x12\x18\n" +

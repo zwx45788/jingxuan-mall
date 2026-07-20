@@ -99,6 +99,18 @@ public final class MerchantServiceGrpc {
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               com.example.shopping.api.Shopping.CreateShopResponse.getDefaultInstance()))
           .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.example.shopping.api.Shopping.GetMerchantInfoRequest,
+      com.example.shopping.api.Shopping.GetMerchantInfoResponse> METHOD_GET_MERCHANT_INFO =
+      io.grpc.MethodDescriptor.<com.example.shopping.api.Shopping.GetMerchantInfoRequest, com.example.shopping.api.Shopping.GetMerchantInfoResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "com.example.shopping.MerchantService", "GetMerchantInfo"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.example.shopping.api.Shopping.GetMerchantInfoRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.example.shopping.api.Shopping.GetMerchantInfoResponse.getDefaultInstance()))
+          .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -169,6 +181,13 @@ public final class MerchantServiceGrpc {
       asyncUnimplementedUnaryCall(METHOD_CREATE_SHOP, responseObserver);
     }
 
+    /**
+     */
+    public void getMerchantInfo(com.example.shopping.api.Shopping.GetMerchantInfoRequest request,
+        io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.GetMerchantInfoResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_MERCHANT_INFO, responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -213,6 +232,13 @@ public final class MerchantServiceGrpc {
                 com.example.shopping.api.Shopping.CreateShopRequest,
                 com.example.shopping.api.Shopping.CreateShopResponse>(
                   this, METHODID_CREATE_SHOP)))
+          .addMethod(
+            METHOD_GET_MERCHANT_INFO,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.example.shopping.api.Shopping.GetMerchantInfoRequest,
+                com.example.shopping.api.Shopping.GetMerchantInfoResponse>(
+                  this, METHODID_GET_MERCHANT_INFO)))
           .build();
     }
   }
@@ -282,6 +308,14 @@ public final class MerchantServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_CREATE_SHOP, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getMerchantInfo(com.example.shopping.api.Shopping.GetMerchantInfoRequest request,
+        io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.GetMerchantInfoResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_MERCHANT_INFO, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -342,6 +376,13 @@ public final class MerchantServiceGrpc {
     public com.example.shopping.api.Shopping.CreateShopResponse createShop(com.example.shopping.api.Shopping.CreateShopRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_CREATE_SHOP, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.example.shopping.api.Shopping.GetMerchantInfoResponse getMerchantInfo(com.example.shopping.api.Shopping.GetMerchantInfoRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_MERCHANT_INFO, getCallOptions(), request);
     }
   }
 
@@ -410,6 +451,14 @@ public final class MerchantServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_CREATE_SHOP, getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.example.shopping.api.Shopping.GetMerchantInfoResponse> getMerchantInfo(
+        com.example.shopping.api.Shopping.GetMerchantInfoRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_MERCHANT_INFO, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_REGISTER_MERCHANT = 0;
@@ -418,6 +467,7 @@ public final class MerchantServiceGrpc {
   private static final int METHODID_PUBLISH_PRODUCT = 3;
   private static final int METHODID_UN_PUBLISH_PRODUCT = 4;
   private static final int METHODID_CREATE_SHOP = 5;
+  private static final int METHODID_GET_MERCHANT_INFO = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -460,6 +510,10 @@ public final class MerchantServiceGrpc {
           serviceImpl.createShop((com.example.shopping.api.Shopping.CreateShopRequest) request,
               (io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.CreateShopResponse>) responseObserver);
           break;
+        case METHODID_GET_MERCHANT_INFO:
+          serviceImpl.getMerchantInfo((com.example.shopping.api.Shopping.GetMerchantInfoRequest) request,
+              (io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.GetMerchantInfoResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -499,6 +553,7 @@ public final class MerchantServiceGrpc {
               .addMethod(METHOD_PUBLISH_PRODUCT)
               .addMethod(METHOD_UN_PUBLISH_PRODUCT)
               .addMethod(METHOD_CREATE_SHOP)
+              .addMethod(METHOD_GET_MERCHANT_INFO)
               .build();
         }
       }

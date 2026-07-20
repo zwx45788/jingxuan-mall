@@ -44,14 +44,44 @@ public final class Shopping {
         getPhoneNumberBytes();
 
     /**
-     * <code>string address = 4;</code>
+     * <code>string province = 4;</code>
      */
-    java.lang.String getAddress();
+    java.lang.String getProvince();
     /**
-     * <code>string address = 4;</code>
+     * <code>string province = 4;</code>
      */
     com.google.protobuf.ByteString
-        getAddressBytes();
+        getProvinceBytes();
+
+    /**
+     * <code>string city = 5;</code>
+     */
+    java.lang.String getCity();
+    /**
+     * <code>string city = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getCityBytes();
+
+    /**
+     * <code>string district = 6;</code>
+     */
+    java.lang.String getDistrict();
+    /**
+     * <code>string district = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getDistrictBytes();
+
+    /**
+     * <code>string detail = 7;</code>
+     */
+    java.lang.String getDetail();
+    /**
+     * <code>string detail = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getDetailBytes();
   }
   /**
    * Protobuf type {@code com.example.shopping.AddressInfo}
@@ -68,7 +98,10 @@ public final class Shopping {
       addressId_ = 0L;
       receiverName_ = "";
       phoneNumber_ = "";
-      address_ = "";
+      province_ = "";
+      city_ = "";
+      district_ = "";
+      detail_ = "";
     }
 
     @java.lang.Override
@@ -116,7 +149,25 @@ public final class Shopping {
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              address_ = s;
+              province_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              city_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              district_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              detail_ = s;
               break;
             }
           }
@@ -219,34 +270,136 @@ public final class Shopping {
       }
     }
 
-    public static final int ADDRESS_FIELD_NUMBER = 4;
-    private volatile java.lang.Object address_;
+    public static final int PROVINCE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object province_;
     /**
-     * <code>string address = 4;</code>
+     * <code>string province = 4;</code>
      */
-    public java.lang.String getAddress() {
-      java.lang.Object ref = address_;
+    public java.lang.String getProvince() {
+      java.lang.Object ref = province_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        address_ = s;
+        province_ = s;
         return s;
       }
     }
     /**
-     * <code>string address = 4;</code>
+     * <code>string province = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getAddressBytes() {
-      java.lang.Object ref = address_;
+        getProvinceBytes() {
+      java.lang.Object ref = province_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        address_ = b;
+        province_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CITY_FIELD_NUMBER = 5;
+    private volatile java.lang.Object city_;
+    /**
+     * <code>string city = 5;</code>
+     */
+    public java.lang.String getCity() {
+      java.lang.Object ref = city_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        city_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string city = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCityBytes() {
+      java.lang.Object ref = city_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        city_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DISTRICT_FIELD_NUMBER = 6;
+    private volatile java.lang.Object district_;
+    /**
+     * <code>string district = 6;</code>
+     */
+    public java.lang.String getDistrict() {
+      java.lang.Object ref = district_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        district_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string district = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDistrictBytes() {
+      java.lang.Object ref = district_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        district_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DETAIL_FIELD_NUMBER = 7;
+    private volatile java.lang.Object detail_;
+    /**
+     * <code>string detail = 7;</code>
+     */
+    public java.lang.String getDetail() {
+      java.lang.Object ref = detail_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        detail_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string detail = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDetailBytes() {
+      java.lang.Object ref = detail_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        detail_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -274,8 +427,17 @@ public final class Shopping {
       if (!getPhoneNumberBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, phoneNumber_);
       }
-      if (!getAddressBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, address_);
+      if (!getProvinceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, province_);
+      }
+      if (!getCityBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, city_);
+      }
+      if (!getDistrictBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, district_);
+      }
+      if (!getDetailBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, detail_);
       }
     }
 
@@ -294,8 +456,17 @@ public final class Shopping {
       if (!getPhoneNumberBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, phoneNumber_);
       }
-      if (!getAddressBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, address_);
+      if (!getProvinceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, province_);
+      }
+      if (!getCityBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, city_);
+      }
+      if (!getDistrictBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, district_);
+      }
+      if (!getDetailBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, detail_);
       }
       memoizedSize = size;
       return size;
@@ -319,8 +490,14 @@ public final class Shopping {
           .equals(other.getReceiverName());
       result = result && getPhoneNumber()
           .equals(other.getPhoneNumber());
-      result = result && getAddress()
-          .equals(other.getAddress());
+      result = result && getProvince()
+          .equals(other.getProvince());
+      result = result && getCity()
+          .equals(other.getCity());
+      result = result && getDistrict()
+          .equals(other.getDistrict());
+      result = result && getDetail()
+          .equals(other.getDetail());
       return result;
     }
 
@@ -338,8 +515,14 @@ public final class Shopping {
       hash = (53 * hash) + getReceiverName().hashCode();
       hash = (37 * hash) + PHONE_NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getPhoneNumber().hashCode();
-      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
-      hash = (53 * hash) + getAddress().hashCode();
+      hash = (37 * hash) + PROVINCE_FIELD_NUMBER;
+      hash = (53 * hash) + getProvince().hashCode();
+      hash = (37 * hash) + CITY_FIELD_NUMBER;
+      hash = (53 * hash) + getCity().hashCode();
+      hash = (37 * hash) + DISTRICT_FIELD_NUMBER;
+      hash = (53 * hash) + getDistrict().hashCode();
+      hash = (37 * hash) + DETAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getDetail().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -475,7 +658,13 @@ public final class Shopping {
 
         phoneNumber_ = "";
 
-        address_ = "";
+        province_ = "";
+
+        city_ = "";
+
+        district_ = "";
+
+        detail_ = "";
 
         return this;
       }
@@ -502,7 +691,10 @@ public final class Shopping {
         result.addressId_ = addressId_;
         result.receiverName_ = receiverName_;
         result.phoneNumber_ = phoneNumber_;
-        result.address_ = address_;
+        result.province_ = province_;
+        result.city_ = city_;
+        result.district_ = district_;
+        result.detail_ = detail_;
         onBuilt();
         return result;
       }
@@ -555,8 +747,20 @@ public final class Shopping {
           phoneNumber_ = other.phoneNumber_;
           onChanged();
         }
-        if (!other.getAddress().isEmpty()) {
-          address_ = other.address_;
+        if (!other.getProvince().isEmpty()) {
+          province_ = other.province_;
+          onChanged();
+        }
+        if (!other.getCity().isEmpty()) {
+          city_ = other.city_;
+          onChanged();
+        }
+        if (!other.getDistrict().isEmpty()) {
+          district_ = other.district_;
+          onChanged();
+        }
+        if (!other.getDetail().isEmpty()) {
+          detail_ = other.detail_;
           onChanged();
         }
         onChanged();
@@ -749,71 +953,278 @@ public final class Shopping {
         return this;
       }
 
-      private java.lang.Object address_ = "";
+      private java.lang.Object province_ = "";
       /**
-       * <code>string address = 4;</code>
+       * <code>string province = 4;</code>
        */
-      public java.lang.String getAddress() {
-        java.lang.Object ref = address_;
+      public java.lang.String getProvince() {
+        java.lang.Object ref = province_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          address_ = s;
+          province_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string address = 4;</code>
+       * <code>string province = 4;</code>
        */
       public com.google.protobuf.ByteString
-          getAddressBytes() {
-        java.lang.Object ref = address_;
+          getProvinceBytes() {
+        java.lang.Object ref = province_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          address_ = b;
+          province_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string address = 4;</code>
+       * <code>string province = 4;</code>
        */
-      public Builder setAddress(
+      public Builder setProvince(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        address_ = value;
+        province_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string address = 4;</code>
+       * <code>string province = 4;</code>
        */
-      public Builder clearAddress() {
+      public Builder clearProvince() {
         
-        address_ = getDefaultInstance().getAddress();
+        province_ = getDefaultInstance().getProvince();
         onChanged();
         return this;
       }
       /**
-       * <code>string address = 4;</code>
+       * <code>string province = 4;</code>
        */
-      public Builder setAddressBytes(
+      public Builder setProvinceBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        address_ = value;
+        province_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object city_ = "";
+      /**
+       * <code>string city = 5;</code>
+       */
+      public java.lang.String getCity() {
+        java.lang.Object ref = city_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          city_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string city = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCityBytes() {
+        java.lang.Object ref = city_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          city_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string city = 5;</code>
+       */
+      public Builder setCity(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        city_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string city = 5;</code>
+       */
+      public Builder clearCity() {
+        
+        city_ = getDefaultInstance().getCity();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string city = 5;</code>
+       */
+      public Builder setCityBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        city_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object district_ = "";
+      /**
+       * <code>string district = 6;</code>
+       */
+      public java.lang.String getDistrict() {
+        java.lang.Object ref = district_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          district_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string district = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDistrictBytes() {
+        java.lang.Object ref = district_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          district_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string district = 6;</code>
+       */
+      public Builder setDistrict(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        district_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string district = 6;</code>
+       */
+      public Builder clearDistrict() {
+        
+        district_ = getDefaultInstance().getDistrict();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string district = 6;</code>
+       */
+      public Builder setDistrictBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        district_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object detail_ = "";
+      /**
+       * <code>string detail = 7;</code>
+       */
+      public java.lang.String getDetail() {
+        java.lang.Object ref = detail_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          detail_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string detail = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDetailBytes() {
+        java.lang.Object ref = detail_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          detail_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string detail = 7;</code>
+       */
+      public Builder setDetail(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        detail_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string detail = 7;</code>
+       */
+      public Builder clearDetail() {
+        
+        detail_ = getDefaultInstance().getDetail();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string detail = 7;</code>
+       */
+      public Builder setDetailBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        detail_ = value;
         onChanged();
         return this;
       }
@@ -25783,124 +26194,125 @@ public final class Shopping {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016shopping.proto\022\024com.example.shopping\"_" +
-      "\n\013AddressInfo\022\022\n\naddress_id\030\001 \001(\004\022\025\n\rrec" +
-      "eiver_name\030\002 \001(\t\022\024\n\014phone_number\030\003 \001(\t\022\017" +
-      "\n\007address\030\004 \001(\t\"\'\n\024ListAddressesRequest\022" +
-      "\017\n\007user_id\030\001 \001(\004\"o\n\025ListAddressesRespons" +
-      "e\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\0224\n\ta" +
-      "ddresses\030\003 \003(\0132!.com.example.shopping.Ad" +
-      "dressInfo\"t\n\024UpdateAddressRequest\022\017\n\007use" +
-      "r_id\030\001 \001(\004\022\022\n\naddress_id\030\002 \001(\004\0227\n\014addres" +
-      "s_info\030\003 \001(\0132!.com.example.shopping.Addr",
-      "essInfo\"9\n\025UpdateAddressResponse\022\017\n\007succ" +
-      "ess\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"%\n\022GetUserInf" +
-      "oRequest\022\017\n\007user_id\030\001 \001(\004\"a\n\023GetUserInfo" +
-      "Response\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001" +
-      "(\t\022(\n\004user\030\003 \001(\0132\032.com.example.shopping." +
-      "User\"I\n\025UpdateUserInfoRequest\022\017\n\007user_id" +
-      "\030\001 \001(\004\022\020\n\010username\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\"" +
-      ":\n\026UpdateUserInfoResponse\022\017\n\007success\030\001 \001" +
-      "(\010\022\017\n\007message\030\002 \001(\t\"8\n\004User\022\017\n\007user_id\030\001" +
-      " \001(\004\022\020\n\010username\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\"H\n",
-      "\023RegisterUserRequest\022\020\n\010username\030\001 \001(\t\022\020" +
-      "\n\010password\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\"8\n\024Regis" +
-      "terUserResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007mess" +
-      "age\030\002 \001(\t\"3\n\020LoginUserRequest\022\r\n\005email\030\001" +
-      " \001(\t\022\020\n\010password\030\002 \001(\t\"D\n\021LoginUserRespo" +
-      "nse\022\017\n\007success\030\001 \001(\010\022\r\n\005token\030\002 \001(\t\022\017\n\007m" +
-      "essage\030\003 \001(\t\"%\n\022GetCartInfoRequest\022\017\n\007us" +
-      "er_id\030\001 \001(\004\"k\n\023GetCartInfoResponse\022\017\n\007su" +
-      "ccess\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\0222\n\ncart_ite" +
-      "ms\030\003 \003(\0132\036.com.example.shopping.CartItem",
-      "\"~\n\010CartItem\022\r\n\005title\030\001 \001(\t\022\r\n\005image\030\002 \001" +
-      "(\t\022\021\n\tspec_json\030\003 \001(\t\022\r\n\005price\030\004 \001(\004\022\020\n\010" +
-      "quantity\030\005 \001(\004\022\017\n\007checked\030\006 \001(\004\022\017\n\007shop_" +
-      "id\030\007 \001(\004\"E\n\020AddToCartRequest\022\017\n\007user_id\030" +
-      "\001 \001(\004\022\016\n\006sku_id\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\004\"" +
-      "5\n\021AddToCartResponse\022\017\n\007success\030\001 \001(\010\022\017\n" +
-      "\007message\030\002 \001(\t\">\n\025RemoveFromCartRequest\022" +
-      "\017\n\007user_id\030\001 \001(\004\022\024\n\014cart_item_id\030\002 \001(\004\":" +
-      "\n\026RemoveFromCartResponse\022\017\n\007success\030\001 \001(" +
-      "\010\022\017\n\007message\030\002 \001(\t\"L\n\027RegisterMerchantRe",
-      "quest\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(" +
-      "\t\022\r\n\005email\030\003 \001(\t\"<\n\030RegisterMerchantResp" +
-      "onse\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"7" +
-      "\n\024LoginMerchantRequest\022\r\n\005email\030\001 \001(\t\022\020\n" +
-      "\010password\030\002 \001(\t\"H\n\025LoginMerchantResponse" +
-      "\022\017\n\007success\030\001 \001(\010\022\r\n\005token\030\002 \001(\t\022\017\n\007mess" +
-      "age\030\003 \001(\t\"\234\001\n\024CreateProductRequest\022\023\n\013ca" +
-      "tegory_id\030\001 \001(\004\022\r\n\005title\030\002 \001(\t\022\022\n\nmain_i" +
-      "mage\030\003 \001(\t\022\023\n\013total_stock\030\004 \001(\004\022\016\n\006statu" +
-      "s\030\005 \001(\004\022\'\n\004skus\030\006 \003(\0132\031.com.example.shop",
-      "ping.Sku\"9\n\025CreateProductResponse\022\017\n\007suc" +
-      "cess\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"E\n\003Sku\022\021\n\tsp" +
-      "ec_json\030\001 \001(\t\022\r\n\005price\030\002 \001(\004\022\r\n\005stock\030\003 " +
-      "\001(\004\022\r\n\005image\030\004 \001(\t\",\n\025PublishProductRequ" +
-      "est\022\023\n\013product_ids\030\001 \003(\004\":\n\026PublishProdu" +
-      "ctResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002" +
-      " \001(\t\".\n\027UnPublishProductRequest\022\023\n\013produ" +
-      "ct_ids\030\001 \003(\004\"<\n\030UnPublishProductResponse" +
-      "\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"^\n\021Cr" +
-      "eateShopRequest\022\023\n\013merchant_id\030\001 \001(\004\022\021\n\t",
-      "shop_name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\014\n\004" +
-      "logo\030\004 \001(\t\"6\n\022CreateShopResponse\022\017\n\007succ" +
-      "ess\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"G\n\022CreateOrde" +
-      "rRequest\022\017\n\007user_id\030\001 \001(\004\022\016\n\006sku_id\030\002 \001(" +
-      "\004\022\020\n\010quantity\030\003 \001(\004\"7\n\023CreateOrderRespon" +
-      "se\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"-\n\026" +
-      "GetMerchantInfoRequest\022\023\n\013merchant_id\030\001 " +
-      "\001(\004\"X\n\027GetMerchantInfoResponse\022\017\n\007succes" +
-      "s\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\r" +
-      "\n\005email\030\004 \001(\t2\367\004\n\013UserService\022e\n\014Registe",
-      "rUser\022).com.example.shopping.RegisterUse" +
-      "rRequest\032*.com.example.shopping.Register" +
-      "UserResponse\022\\\n\tLoginUser\022&.com.example." +
-      "shopping.LoginUserRequest\032\'.com.example." +
-      "shopping.LoginUserResponse\022b\n\013GetUserInf" +
-      "o\022(.com.example.shopping.GetUserInfoRequ" +
-      "est\032).com.example.shopping.GetUserInfoRe" +
-      "sponse\022h\n\rListAddresses\022*.com.example.sh" +
-      "opping.ListAddressesRequest\032+.com.exampl" +
-      "e.shopping.ListAddressesResponse\022h\n\rUpda",
-      "teAddress\022*.com.example.shopping.UpdateA" +
-      "ddressRequest\032+.com.example.shopping.Upd" +
-      "ateAddressResponse\022k\n\016UpdateUserInfo\022+.c" +
-      "om.example.shopping.UpdateUserInfoReques" +
-      "t\032,.com.example.shopping.UpdateUserInfoR" +
-      "esponse2\211\006\n\017MerchantService\022q\n\020RegisterM" +
-      "erchant\022-.com.example.shopping.RegisterM" +
-      "erchantRequest\032..com.example.shopping.Re" +
-      "gisterMerchantResponse\022h\n\rLoginMerchant\022" +
-      "*.com.example.shopping.LoginMerchantRequ",
-      "est\032+.com.example.shopping.LoginMerchant" +
-      "Response\022h\n\rCreateProduct\022*.com.example." +
-      "shopping.CreateProductRequest\032+.com.exam" +
-      "ple.shopping.CreateProductResponse\022k\n\016Pu" +
-      "blishProduct\022+.com.example.shopping.Publ" +
-      "ishProductRequest\032,.com.example.shopping" +
-      ".PublishProductResponse\022q\n\020UnPublishProd" +
-      "uct\022-.com.example.shopping.UnPublishProd" +
-      "uctRequest\032..com.example.shopping.UnPubl" +
-      "ishProductResponse\022_\n\nCreateShop\022\'.com.e",
-      "xample.shopping.CreateShopRequest\032(.com." +
-      "example.shopping.CreateShopResponse\022n\n\017G" +
-      "etMerchantInfo\022,.com.example.shopping.Ge" +
-      "tMerchantInfoRequest\032-.com.example.shopp" +
-      "ing.GetMerchantInfoResponse2\274\002\n\013CartServ" +
-      "ice\022b\n\013GetCartInfo\022(.com.example.shoppin" +
-      "g.GetCartInfoRequest\032).com.example.shopp" +
-      "ing.GetCartInfoResponse\022\\\n\tAddToCart\022&.c" +
-      "om.example.shopping.AddToCartRequest\032\'.c" +
-      "om.example.shopping.AddToCartResponse\022k\n",
-      "\016RemoveFromCart\022+.com.example.shopping.R" +
-      "emoveFromCartRequest\032,.com.example.shopp" +
-      "ing.RemoveFromCartResponse2r\n\014OrderServi" +
-      "ce\022b\n\013CreateOrder\022(.com.example.shopping" +
-      ".CreateOrderRequest\032).com.example.shoppi" +
-      "ng.CreateOrderResponseB1\n\030com.example.sh" +
-      "opping.apiZ\025shopping/api/shoppingb\006proto" +
-      "3"
+      "\n\016shopping.proto\022\024com.example.shopping\"\220" +
+      "\001\n\013AddressInfo\022\022\n\naddress_id\030\001 \001(\004\022\025\n\rre" +
+      "ceiver_name\030\002 \001(\t\022\024\n\014phone_number\030\003 \001(\t\022" +
+      "\020\n\010province\030\004 \001(\t\022\014\n\004city\030\005 \001(\t\022\020\n\010distr" +
+      "ict\030\006 \001(\t\022\016\n\006detail\030\007 \001(\t\"\'\n\024ListAddress" +
+      "esRequest\022\017\n\007user_id\030\001 \001(\004\"o\n\025ListAddres" +
+      "sesResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030" +
+      "\002 \001(\t\0224\n\taddresses\030\003 \003(\0132!.com.example.s" +
+      "hopping.AddressInfo\"t\n\024UpdateAddressRequ" +
+      "est\022\017\n\007user_id\030\001 \001(\004\022\022\n\naddress_id\030\002 \001(\004",
+      "\0227\n\014address_info\030\003 \001(\0132!.com.example.sho" +
+      "pping.AddressInfo\"9\n\025UpdateAddressRespon" +
+      "se\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"%\n\022" +
+      "GetUserInfoRequest\022\017\n\007user_id\030\001 \001(\004\"a\n\023G" +
+      "etUserInfoResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007m" +
+      "essage\030\002 \001(\t\022(\n\004user\030\003 \001(\0132\032.com.example" +
+      ".shopping.User\"I\n\025UpdateUserInfoRequest\022" +
+      "\017\n\007user_id\030\001 \001(\004\022\020\n\010username\030\002 \001(\t\022\r\n\005em" +
+      "ail\030\003 \001(\t\":\n\026UpdateUserInfoResponse\022\017\n\007s" +
+      "uccess\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"8\n\004User\022\017\n",
+      "\007user_id\030\001 \001(\004\022\020\n\010username\030\002 \001(\t\022\r\n\005emai" +
+      "l\030\003 \001(\t\"H\n\023RegisterUserRequest\022\020\n\010userna" +
+      "me\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\r\n\005email\030\003 \001(" +
+      "\t\"8\n\024RegisterUserResponse\022\017\n\007success\030\001 \001" +
+      "(\010\022\017\n\007message\030\002 \001(\t\"3\n\020LoginUserRequest\022" +
+      "\r\n\005email\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"D\n\021Logi" +
+      "nUserResponse\022\017\n\007success\030\001 \001(\010\022\r\n\005token\030" +
+      "\002 \001(\t\022\017\n\007message\030\003 \001(\t\"%\n\022GetCartInfoReq" +
+      "uest\022\017\n\007user_id\030\001 \001(\004\"k\n\023GetCartInfoResp" +
+      "onse\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\0222",
+      "\n\ncart_items\030\003 \003(\0132\036.com.example.shoppin" +
+      "g.CartItem\"~\n\010CartItem\022\r\n\005title\030\001 \001(\t\022\r\n" +
+      "\005image\030\002 \001(\t\022\021\n\tspec_json\030\003 \001(\t\022\r\n\005price" +
+      "\030\004 \001(\004\022\020\n\010quantity\030\005 \001(\004\022\017\n\007checked\030\006 \001(" +
+      "\004\022\017\n\007shop_id\030\007 \001(\004\"E\n\020AddToCartRequest\022\017" +
+      "\n\007user_id\030\001 \001(\004\022\016\n\006sku_id\030\002 \001(\004\022\020\n\010quant" +
+      "ity\030\003 \001(\004\"5\n\021AddToCartResponse\022\017\n\007succes" +
+      "s\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\">\n\025RemoveFromCa" +
+      "rtRequest\022\017\n\007user_id\030\001 \001(\004\022\024\n\014cart_item_" +
+      "id\030\002 \001(\004\":\n\026RemoveFromCartResponse\022\017\n\007su",
+      "ccess\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"L\n\027Register" +
+      "MerchantRequest\022\020\n\010username\030\001 \001(\t\022\020\n\010pas" +
+      "sword\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\"<\n\030RegisterMe" +
+      "rchantResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007messa" +
+      "ge\030\002 \001(\t\"7\n\024LoginMerchantRequest\022\r\n\005emai" +
+      "l\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"H\n\025LoginMercha" +
+      "ntResponse\022\017\n\007success\030\001 \001(\010\022\r\n\005token\030\002 \001" +
+      "(\t\022\017\n\007message\030\003 \001(\t\"\234\001\n\024CreateProductReq" +
+      "uest\022\023\n\013category_id\030\001 \001(\004\022\r\n\005title\030\002 \001(\t" +
+      "\022\022\n\nmain_image\030\003 \001(\t\022\023\n\013total_stock\030\004 \001(",
+      "\004\022\016\n\006status\030\005 \001(\004\022\'\n\004skus\030\006 \003(\0132\031.com.ex" +
+      "ample.shopping.Sku\"9\n\025CreateProductRespo" +
+      "nse\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"E\n" +
+      "\003Sku\022\021\n\tspec_json\030\001 \001(\t\022\r\n\005price\030\002 \001(\004\022\r" +
+      "\n\005stock\030\003 \001(\004\022\r\n\005image\030\004 \001(\t\",\n\025PublishP" +
+      "roductRequest\022\023\n\013product_ids\030\001 \003(\004\":\n\026Pu" +
+      "blishProductResponse\022\017\n\007success\030\001 \001(\010\022\017\n" +
+      "\007message\030\002 \001(\t\".\n\027UnPublishProductReques" +
+      "t\022\023\n\013product_ids\030\001 \003(\004\"<\n\030UnPublishProdu" +
+      "ctResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002",
+      " \001(\t\"^\n\021CreateShopRequest\022\023\n\013merchant_id" +
+      "\030\001 \001(\004\022\021\n\tshop_name\030\002 \001(\t\022\023\n\013description" +
+      "\030\003 \001(\t\022\014\n\004logo\030\004 \001(\t\"6\n\022CreateShopRespon" +
+      "se\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"G\n\022" +
+      "CreateOrderRequest\022\017\n\007user_id\030\001 \001(\004\022\016\n\006s" +
+      "ku_id\030\002 \001(\004\022\020\n\010quantity\030\003 \001(\004\"7\n\023CreateO" +
+      "rderResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007message" +
+      "\030\002 \001(\t\"-\n\026GetMerchantInfoRequest\022\023\n\013merc" +
+      "hant_id\030\001 \001(\004\"X\n\027GetMerchantInfoResponse" +
+      "\022\017\n\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\022\014\n\004na",
+      "me\030\003 \001(\t\022\r\n\005email\030\004 \001(\t2\367\004\n\013UserService\022" +
+      "e\n\014RegisterUser\022).com.example.shopping.R" +
+      "egisterUserRequest\032*.com.example.shoppin" +
+      "g.RegisterUserResponse\022\\\n\tLoginUser\022&.co" +
+      "m.example.shopping.LoginUserRequest\032\'.co" +
+      "m.example.shopping.LoginUserResponse\022b\n\013" +
+      "GetUserInfo\022(.com.example.shopping.GetUs" +
+      "erInfoRequest\032).com.example.shopping.Get" +
+      "UserInfoResponse\022h\n\rListAddresses\022*.com." +
+      "example.shopping.ListAddressesRequest\032+.",
+      "com.example.shopping.ListAddressesRespon" +
+      "se\022h\n\rUpdateAddress\022*.com.example.shoppi" +
+      "ng.UpdateAddressRequest\032+.com.example.sh" +
+      "opping.UpdateAddressResponse\022k\n\016UpdateUs" +
+      "erInfo\022+.com.example.shopping.UpdateUser" +
+      "InfoRequest\032,.com.example.shopping.Updat" +
+      "eUserInfoResponse2\211\006\n\017MerchantService\022q\n" +
+      "\020RegisterMerchant\022-.com.example.shopping" +
+      ".RegisterMerchantRequest\032..com.example.s" +
+      "hopping.RegisterMerchantResponse\022h\n\rLogi",
+      "nMerchant\022*.com.example.shopping.LoginMe" +
+      "rchantRequest\032+.com.example.shopping.Log" +
+      "inMerchantResponse\022h\n\rCreateProduct\022*.co" +
+      "m.example.shopping.CreateProductRequest\032" +
+      "+.com.example.shopping.CreateProductResp" +
+      "onse\022k\n\016PublishProduct\022+.com.example.sho" +
+      "pping.PublishProductRequest\032,.com.exampl" +
+      "e.shopping.PublishProductResponse\022q\n\020UnP" +
+      "ublishProduct\022-.com.example.shopping.UnP" +
+      "ublishProductRequest\032..com.example.shopp",
+      "ing.UnPublishProductResponse\022_\n\nCreateSh" +
+      "op\022\'.com.example.shopping.CreateShopRequ" +
+      "est\032(.com.example.shopping.CreateShopRes" +
+      "ponse\022n\n\017GetMerchantInfo\022,.com.example.s" +
+      "hopping.GetMerchantInfoRequest\032-.com.exa" +
+      "mple.shopping.GetMerchantInfoResponse2\274\002" +
+      "\n\013CartService\022b\n\013GetCartInfo\022(.com.examp" +
+      "le.shopping.GetCartInfoRequest\032).com.exa" +
+      "mple.shopping.GetCartInfoResponse\022\\\n\tAdd" +
+      "ToCart\022&.com.example.shopping.AddToCartR",
+      "equest\032\'.com.example.shopping.AddToCartR" +
+      "esponse\022k\n\016RemoveFromCart\022+.com.example." +
+      "shopping.RemoveFromCartRequest\032,.com.exa" +
+      "mple.shopping.RemoveFromCartResponse2r\n\014" +
+      "OrderService\022b\n\013CreateOrder\022(.com.exampl" +
+      "e.shopping.CreateOrderRequest\032).com.exam" +
+      "ple.shopping.CreateOrderResponseB1\n\030com." +
+      "example.shopping.apiZ\025shopping/api/shopp" +
+      "ingb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -25919,7 +26331,7 @@ public final class Shopping {
     internal_static_com_example_shopping_AddressInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_example_shopping_AddressInfo_descriptor,
-        new java.lang.String[] { "AddressId", "ReceiverName", "PhoneNumber", "Address", });
+        new java.lang.String[] { "AddressId", "ReceiverName", "PhoneNumber", "Province", "City", "District", "Detail", });
     internal_static_com_example_shopping_ListAddressesRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_example_shopping_ListAddressesRequest_fieldAccessorTable = new

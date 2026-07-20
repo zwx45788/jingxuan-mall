@@ -22,7 +22,9 @@ CREATE TABLE IF NOT EXISTS `user_address` (
     `province` varchar(255) NOT NULL COMMENT '省份',
     `city` varchar(255) NOT NULL COMMENT '城市',
     `district` varchar(255) NOT NULL COMMENT '区域',
-    `detail` varchar(255) NOT NULL COMMENT '详细地址',
+    `detail` varchar(255) NOT NULL COMMENT '详细地址',   
+    `reciever_name` varchar(255) NOT NULL COMMENT '收货人姓名',
+    `phone_number` varchar(20) NOT NULL COMMENT '收货人电话',
     `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     PRIMARY KEY (`id`)

@@ -51,6 +51,54 @@ public final class UserServiceGrpc {
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               com.example.shopping.api.Shopping.LoginUserResponse.getDefaultInstance()))
           .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.example.shopping.api.Shopping.GetUserInfoRequest,
+      com.example.shopping.api.Shopping.GetUserInfoResponse> METHOD_GET_USER_INFO =
+      io.grpc.MethodDescriptor.<com.example.shopping.api.Shopping.GetUserInfoRequest, com.example.shopping.api.Shopping.GetUserInfoResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "com.example.shopping.UserService", "GetUserInfo"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.example.shopping.api.Shopping.GetUserInfoRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.example.shopping.api.Shopping.GetUserInfoResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.example.shopping.api.Shopping.ListAddressesRequest,
+      com.example.shopping.api.Shopping.ListAddressesResponse> METHOD_LIST_ADDRESSES =
+      io.grpc.MethodDescriptor.<com.example.shopping.api.Shopping.ListAddressesRequest, com.example.shopping.api.Shopping.ListAddressesResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "com.example.shopping.UserService", "ListAddresses"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.example.shopping.api.Shopping.ListAddressesRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.example.shopping.api.Shopping.ListAddressesResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.example.shopping.api.Shopping.UpdateAddressRequest,
+      com.example.shopping.api.Shopping.UpdateAddressResponse> METHOD_UPDATE_ADDRESS =
+      io.grpc.MethodDescriptor.<com.example.shopping.api.Shopping.UpdateAddressRequest, com.example.shopping.api.Shopping.UpdateAddressResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "com.example.shopping.UserService", "UpdateAddress"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.example.shopping.api.Shopping.UpdateAddressRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.example.shopping.api.Shopping.UpdateAddressResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.example.shopping.api.Shopping.UpdateUserInfoRequest,
+      com.example.shopping.api.Shopping.UpdateUserInfoResponse> METHOD_UPDATE_USER_INFO =
+      io.grpc.MethodDescriptor.<com.example.shopping.api.Shopping.UpdateUserInfoRequest, com.example.shopping.api.Shopping.UpdateUserInfoResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "com.example.shopping.UserService", "UpdateUserInfo"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.example.shopping.api.Shopping.UpdateUserInfoRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.example.shopping.api.Shopping.UpdateUserInfoResponse.getDefaultInstance()))
+          .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -93,6 +141,34 @@ public final class UserServiceGrpc {
       asyncUnimplementedUnaryCall(METHOD_LOGIN_USER, responseObserver);
     }
 
+    /**
+     */
+    public void getUserInfo(com.example.shopping.api.Shopping.GetUserInfoRequest request,
+        io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.GetUserInfoResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_USER_INFO, responseObserver);
+    }
+
+    /**
+     */
+    public void listAddresses(com.example.shopping.api.Shopping.ListAddressesRequest request,
+        io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.ListAddressesResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_LIST_ADDRESSES, responseObserver);
+    }
+
+    /**
+     */
+    public void updateAddress(com.example.shopping.api.Shopping.UpdateAddressRequest request,
+        io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.UpdateAddressResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_UPDATE_ADDRESS, responseObserver);
+    }
+
+    /**
+     */
+    public void updateUserInfo(com.example.shopping.api.Shopping.UpdateUserInfoRequest request,
+        io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.UpdateUserInfoResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_UPDATE_USER_INFO, responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -109,6 +185,34 @@ public final class UserServiceGrpc {
                 com.example.shopping.api.Shopping.LoginUserRequest,
                 com.example.shopping.api.Shopping.LoginUserResponse>(
                   this, METHODID_LOGIN_USER)))
+          .addMethod(
+            METHOD_GET_USER_INFO,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.example.shopping.api.Shopping.GetUserInfoRequest,
+                com.example.shopping.api.Shopping.GetUserInfoResponse>(
+                  this, METHODID_GET_USER_INFO)))
+          .addMethod(
+            METHOD_LIST_ADDRESSES,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.example.shopping.api.Shopping.ListAddressesRequest,
+                com.example.shopping.api.Shopping.ListAddressesResponse>(
+                  this, METHODID_LIST_ADDRESSES)))
+          .addMethod(
+            METHOD_UPDATE_ADDRESS,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.example.shopping.api.Shopping.UpdateAddressRequest,
+                com.example.shopping.api.Shopping.UpdateAddressResponse>(
+                  this, METHODID_UPDATE_ADDRESS)))
+          .addMethod(
+            METHOD_UPDATE_USER_INFO,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.example.shopping.api.Shopping.UpdateUserInfoRequest,
+                com.example.shopping.api.Shopping.UpdateUserInfoResponse>(
+                  this, METHODID_UPDATE_USER_INFO)))
           .build();
     }
   }
@@ -146,6 +250,38 @@ public final class UserServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_LOGIN_USER, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getUserInfo(com.example.shopping.api.Shopping.GetUserInfoRequest request,
+        io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.GetUserInfoResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_USER_INFO, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listAddresses(com.example.shopping.api.Shopping.ListAddressesRequest request,
+        io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.ListAddressesResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_LIST_ADDRESSES, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateAddress(com.example.shopping.api.Shopping.UpdateAddressRequest request,
+        io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.UpdateAddressResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_UPDATE_ADDRESS, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateUserInfo(com.example.shopping.api.Shopping.UpdateUserInfoRequest request,
+        io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.UpdateUserInfoResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_UPDATE_USER_INFO, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -178,6 +314,34 @@ public final class UserServiceGrpc {
     public com.example.shopping.api.Shopping.LoginUserResponse loginUser(com.example.shopping.api.Shopping.LoginUserRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_LOGIN_USER, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.example.shopping.api.Shopping.GetUserInfoResponse getUserInfo(com.example.shopping.api.Shopping.GetUserInfoRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_USER_INFO, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.example.shopping.api.Shopping.ListAddressesResponse listAddresses(com.example.shopping.api.Shopping.ListAddressesRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_LIST_ADDRESSES, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.example.shopping.api.Shopping.UpdateAddressResponse updateAddress(com.example.shopping.api.Shopping.UpdateAddressRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_UPDATE_ADDRESS, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.example.shopping.api.Shopping.UpdateUserInfoResponse updateUserInfo(com.example.shopping.api.Shopping.UpdateUserInfoRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_UPDATE_USER_INFO, getCallOptions(), request);
     }
   }
 
@@ -214,10 +378,46 @@ public final class UserServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_LOGIN_USER, getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.example.shopping.api.Shopping.GetUserInfoResponse> getUserInfo(
+        com.example.shopping.api.Shopping.GetUserInfoRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_USER_INFO, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.example.shopping.api.Shopping.ListAddressesResponse> listAddresses(
+        com.example.shopping.api.Shopping.ListAddressesRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_LIST_ADDRESSES, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.example.shopping.api.Shopping.UpdateAddressResponse> updateAddress(
+        com.example.shopping.api.Shopping.UpdateAddressRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_UPDATE_ADDRESS, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.example.shopping.api.Shopping.UpdateUserInfoResponse> updateUserInfo(
+        com.example.shopping.api.Shopping.UpdateUserInfoRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_UPDATE_USER_INFO, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_REGISTER_USER = 0;
   private static final int METHODID_LOGIN_USER = 1;
+  private static final int METHODID_GET_USER_INFO = 2;
+  private static final int METHODID_LIST_ADDRESSES = 3;
+  private static final int METHODID_UPDATE_ADDRESS = 4;
+  private static final int METHODID_UPDATE_USER_INFO = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -243,6 +443,22 @@ public final class UserServiceGrpc {
         case METHODID_LOGIN_USER:
           serviceImpl.loginUser((com.example.shopping.api.Shopping.LoginUserRequest) request,
               (io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.LoginUserResponse>) responseObserver);
+          break;
+        case METHODID_GET_USER_INFO:
+          serviceImpl.getUserInfo((com.example.shopping.api.Shopping.GetUserInfoRequest) request,
+              (io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.GetUserInfoResponse>) responseObserver);
+          break;
+        case METHODID_LIST_ADDRESSES:
+          serviceImpl.listAddresses((com.example.shopping.api.Shopping.ListAddressesRequest) request,
+              (io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.ListAddressesResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE_ADDRESS:
+          serviceImpl.updateAddress((com.example.shopping.api.Shopping.UpdateAddressRequest) request,
+              (io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.UpdateAddressResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE_USER_INFO:
+          serviceImpl.updateUserInfo((com.example.shopping.api.Shopping.UpdateUserInfoRequest) request,
+              (io.grpc.stub.StreamObserver<com.example.shopping.api.Shopping.UpdateUserInfoResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -279,6 +495,10 @@ public final class UserServiceGrpc {
               .setSchemaDescriptor(new UserServiceDescriptorSupplier())
               .addMethod(METHOD_REGISTER_USER)
               .addMethod(METHOD_LOGIN_USER)
+              .addMethod(METHOD_GET_USER_INFO)
+              .addMethod(METHOD_LIST_ADDRESSES)
+              .addMethod(METHOD_UPDATE_ADDRESS)
+              .addMethod(METHOD_UPDATE_USER_INFO)
               .build();
         }
       }

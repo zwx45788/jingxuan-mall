@@ -39,7 +39,11 @@ message AddressInfo{
     uint64 address_id = 1;
     string receiver_name = 2;
     string phone_number = 3;
-    string address = 4;
+    string province = 4;
+    string city = 5;
+    string district = 6;
+    string detail = 7;
+
 }
 
 message ListAddressesRequest{
@@ -175,7 +179,6 @@ message LoginMerchantResponse{
     string token = 2;
     string message = 3;
 }
-
 
 message CreateProductRequest{
     uint64 category_id = 1;
